@@ -1,0 +1,46 @@
+Tue Oct  6 09:02:46 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.88                 KMD Version: 610.88        CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                  Driver-Model | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 5070      WDDM  |   00000000:01:00.0  On |                  N/A |
+|  0%   55C    P3             21W /  250W |    2892MiB /  12227MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            2104    C+G   ...indows\System32\ShellHost.exe      N/A      |
+|    0   N/A  N/A            2696      C   ...iconda3\envs\mmrdr\python.exe      N/A      |
+|    0   N/A  N/A            8180    C+G   ...y\StartMenuExperienceHost.exe      N/A      |
+|    0   N/A  N/A           11232    C+G   C:\Windows\explorer.exe               N/A      |
+|    0   N/A  N/A           13008    C+G   ....0.4258.53\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           14288    C+G   ...App_cw5n1h2txyewy\LockApp.exe      N/A      |
+|    0   N/A  N/A           14556    C+G   ...2txyewy\CrossDeviceResume.exe      N/A      |
+|    0   N/A  N/A           15812    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           19092    C+G   ....0.4258.53\msedgewebview2.exe      N/A      |
+|    0   N/A  N/A           19492    C+G   ...5n1h2txyewy\TextInputHost.exe      N/A      |
+|    0   N/A  N/A           19836    C+G   ...ntrolPanel\SystemSettings.exe      N/A      |
+|    0   N/A  N/A           20172    C+G   ...SnippingTool\SnippingTool.exe      N/A      |
+|    0   N/A  N/A           22048    C+G   ..._cw5n1h2txyewy\SearchHost.exe      N/A      |
+|    0   N/A  N/A           23068    C+G   ...t\Edge\Application\msedge.exe      N/A      |
+|    0   N/A  N/A           23172    C+G   ...em32\ApplicationFrameHost.exe      N/A      |
+|    0   N/A  N/A           24372    C+G   ...Chrome\Application\chrome.exe      N/A      |
+|    0   N/A  N/A           26180    C+G   ...lot\Application\mscopilot.exe      N/A      |
+|    0   N/A  N/A           27460    C+G   ...yb3d8bbwe\WindowsTerminal.exe      N/A      |
++-----------------------------------------------------------------------------------------+
+
+# conda environments:
+#
+# * -> active
+# + -> frozen
+base                 *   C:\Users\d1121\miniconda3
+mmrdr                    C:\Users\d1121\miniconda3\envs\mmrdr
+retfound_q2l             C:\Users\d1121\miniconda3\envs\retfound_q2l
+

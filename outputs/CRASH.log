@@ -1,0 +1,209 @@
+
+======================================================================
+CRASH at 2026-09-21 16:07:07
+======================================================================
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1196, in <module>
+    main()
+  File "C:\Research\retfound_q2l\train.py", line 878, in main
+    train_loss, global_step = train_one_epoch(
+  File "C:\Research\retfound_q2l\train.py", line 321, in train_one_epoch
+    scaler.scale(loss).backward()
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\site-packages\torch\_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\site-packages\torch\autograd\__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\site-packages\torch\autograd\graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+
+======================================================================
+CRASH at 2026-09-21 16:08:08
+======================================================================
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1196, in <module>
+    main()
+  File "C:\Research\retfound_q2l\train.py", line 878, in main
+    train_loss, global_step = train_one_epoch(
+  File "C:\Research\retfound_q2l\train.py", line 414, in train_one_epoch
+    total_loss += loss.item() * accum_steps  # undo the 1/accum scaling
+KeyboardInterrupt
+
+======================================================================
+CRASH at 2026-10-01 13:56:34
+======================================================================
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1197, in <module>
+    main()
+  File "C:\Research\retfound_q2l\train.py", line 519, in main
+    args = parser.parse_args()
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\argparse.py", line 1833, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\argparse.py", line 1866, in parse_known_args
+    namespace, args = self._parse_known_args(args, namespace)
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\argparse.py", line 2107, in _parse_known_args
+    self.error(_('the following arguments are required: %s') %
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\argparse.py", line 2594, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\argparse.py", line 2581, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+======================================================================
+CRASH at 2026-10-06 08:58:55
+======================================================================
+Traceback (most recent call last):
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2047, in _parse_known_args2
+    namespace, args = self._parse_known_args(args, namespace, intermixed)
+                      ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2344, in _parse_known_args
+    raise ArgumentError(None, _('the following arguments are required: %s') %
+               ', '.join(required_actions))
+argparse.ArgumentError: the following arguments are required: --experiment/-e
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1197, in <module>
+    main()
+    ~~~~^^
+  File "C:\Research\retfound_q2l\train.py", line 519, in main
+    args = parser.parse_args()
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2008, in parse_args
+    args, argv = self.parse_known_args(args, namespace)
+                 ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2018, in parse_known_args
+    return self._parse_known_args2(args, namespace, intermixed=False)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2049, in _parse_known_args2
+    self.error(str(err))
+    ~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2785, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\Lib\argparse.py", line 2772, in exit
+    _sys.exit(status)
+    ~~~~~~~~~^^^^^^^^
+SystemExit: 2
+
+======================================================================
+CRASH at 2026-10-08 13:46:22
+======================================================================
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1197, in <module>
+    main()
+  File "C:\Research\retfound_q2l\train.py", line 879, in main
+    train_loss, global_step = train_one_epoch(
+  File "C:\Research\retfound_q2l\train.py", line 321, in train_one_epoch
+    scaler.scale(loss).backward()
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\site-packages\torch\_tensor.py", line 631, in backward
+    torch.autograd.backward(
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\site-packages\torch\autograd\__init__.py", line 381, in backward
+    _engine_run_backward(
+  File "C:\Users\d1121\miniconda3\envs\retfound_q2l\lib\site-packages\torch\autograd\graph.py", line 869, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+
+======================================================================
+CRASH at 2026-10-20 12:21:50
+======================================================================
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1197, in <module>
+    main()
+  File "C:\Research\retfound_q2l\train.py", line 879, in main
+    train_loss, global_step = train_one_epoch(
+                              ^^^^^^^^^^^^^^^^
+  File "C:\Research\retfound_q2l\train.py", line 321, in train_one_epoch
+    scaler.scale(loss).backward()
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\autograd\__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\autograd\graph.py", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: unknown error
+Search for `cudaErrorUnknown' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+
+
+======================================================================
+CRASH at 2026-10-22 17:50:10
+======================================================================
+Traceback (most recent call last):
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\random.py", line 235, in fork_rng
+    yield
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\utils\checkpoint.py", line 1962, in recompute_fn
+    fn(*args, **kwargs)
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\timm\models\_manipulate.py", line 261, in forward
+    _x = functions[j](_x)
+         ^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\nn\modules\module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\nn\modules\module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\timm\models\vision_transformer.py", line 155, in forward
+    x = x + self.drop_path1(self.ls1(self.attn(self.norm1(x), attn_mask=attn_mask)))
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\nn\modules\module.py", line 1783, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\nn\modules\module.py", line 1794, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\timm\layers\attention.py", line 83, in forward
+    x = F.scaled_dot_product_attention(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: unknown error
+Search for `cudaErrorUnknown' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Research\retfound_q2l\train.py", line 1197, in <module>
+    main()
+  File "C:\Research\retfound_q2l\train.py", line 879, in main
+    train_loss, global_step = train_one_epoch(
+                              ^^^^^^^^^^^^^^^^
+  File "C:\Research\retfound_q2l\train.py", line 321, in train_one_epoch
+    scaler.scale(loss).backward()
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\_tensor.py", line 623, in backward
+    torch.autograd.backward(
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\autograd\__init__.py", line 395, in backward
+    _engine_run_backward(
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\autograd\graph.py", line 1072, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\utils\checkpoint.py", line 1369, in unpack_hook
+    _run_fn_with_dynamo_disabled(frame.recompute_fn, *args)
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\_compile.py", line 54, in inner
+    return disable_fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\_dynamo\eval_frame.py", line 1548, in _fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\utils\checkpoint.py", line 1336, in _run_fn_with_dynamo_disabled
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\utils\checkpoint.py", line 1936, in recompute_fn
+    with torch.random.fork_rng(
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\random.py", line 239, in fork_rng
+    device_mod.set_rng_state(device_rng_state, device)
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\cuda\random.py", line 76, in set_rng_state
+    _lazy_call(cb)
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\cuda\__init__.py", line 522, in _lazy_call
+    callable()
+  File "C:\Users\d1121\miniconda3\envs\mmrdr\Lib\site-packages\torch\cuda\random.py", line 74, in cb
+    default_generator.set_state(new_state)
+torch.AcceleratorError: CUDA error: unknown error
+Search for `cudaErrorUnknown' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+The CUDA driver logged these messages, which may provide useful details:
+Sticky error detected
+Returning 999 (CUDA_ERROR_UNKNOWN) from cuStreamGetCaptureInfo_v3
+
+

@@ -1,0 +1,200 @@
+20:07:33 | ======================================================================
+20:07:33 | Experiment: exp_j5
+20:07:33 | Description: Adaptive lesion-query gating: gated_full (J5)
+20:07:33 | Modalities: ['cfp', 'uwf']
+20:07:33 | Backbone: RETFound ViT-Large/16 (d=1024, LOCKED)
+20:07:33 | Device: cuda
+20:07:33 | Output: outputs\exp_j5
+20:07:33 | ======================================================================
+20:07:33 | Building dataloaders...
+20:07:33 |   Train batches: 1945
+20:07:33 |   Val batches:   261
+20:07:33 |   Test (cfp):    2225 samples
+20:07:33 |   Test (uwf):    2597 samples
+20:07:33 | Building model...
+20:07:33 |   --backbone-weights received: 'weights/RETFound_mae_meh.pth'
+20:07:48 |   RETFound checkpoint: RETFound_mae_meh.pth (weights/RETFound_mae_meh.pth) — 294/294 backbone params matched, 0 missing, 0 unrecognized unexpected keys — success=True
+20:07:48 |   Backbone: 304,149,504 total, 304,149,504 trainable
+20:07:48 |   Decoder:  46,313,288 total, 46,313,288 trainable
+20:07:48 |   Total:    350,462,792 params, 350,462,792 trainable
+20:07:48 |   Gradient checkpointing: ENABLED (requested=True)
+20:07:48 |   Class-balanced weighting (β=0.999):
+20:07:48 |     MA      :  7562 positives → weight 0.535
+20:07:48 |     HE      :  4341 positives → weight 0.541
+20:07:48 |     IH      :  4360 positives → weight 0.541
+20:07:48 |     VB_IRMA :   855 positives → weight 0.929
+20:07:48 |     NV      :  1151 positives → weight 0.781
+20:07:48 |     VH      :  1062 positives → weight 0.816
+20:07:48 |     RD      :   207 positives → weight 2.856
+20:07:48 |   ASL: γ+=0.0, γ-=6.0, clip=0.1, reduction=mean
+20:07:48 |   LR backbone: 1e-05
+20:07:48 |   LR decoder:  0.0001
+20:07:48 |   Weight decay: 0.05
+20:07:48 |   Grad accumulation: 2 steps (effective batch=16)
+20:07:48 |   Per-class classifiers: True
+20:07:48 |   Augmentation: CutMix(α=1.0) + MixUp(α=0.8) @ p=0.5
+20:07:48 |   CUDA devices visible to this process: 1 (CUDA_VISIBLE_DEVICES='0') — training on cuda only, no DataParallel/DDP.
+20:07:48 |   No self-imposed session timeout — training runs until Kaggle itself ends the session, or until cfg.epochs / early stopping is reached, whichever comes first. Resuming after a Kaggle-imposed stop is handled entirely by checkpoint auto-detection below, not by any wall-clock budget this process tracks itself.
+20:07:48 |   Mid-epoch checkpoint interval: 200 optimizer steps (enabled) — this, not any timeout prediction, is what makes an abrupt Kaggle kill resumable.
+20:08:08 | Resuming from outputs\exp_j5\mid_epoch.pth
+20:08:11 |   Resumed from a MID-epoch checkpoint (was at batch 103 of epoch 69, which did NOT complete). Weights/optimizer/scheduler/scaler/EMA restored exactly; epoch 69's data iteration will be REDONE from batch 0 (scheduler.step() for this epoch has not yet been called, so this is consistent — see save_checkpoint() docstring for the full tradeoff).
+20:08:11 | ======================================================================
+20:08:11 | RESUME SUMMARY
+20:08:11 | ======================================================================
+20:08:11 |   Checkpoint file       : mid_epoch.pth
+20:08:11 |   Checkpoint path       : outputs\exp_j5\mid_epoch.pth
+20:08:11 |   Checkpoint type       : mid-epoch (partial epoch)
+20:08:11 |   Resumed epoch         : 69
+20:08:11 |   Resumed batch_idx     : 103
+20:08:11 |   Global step           : 66800
+20:08:11 |   Best val F1 so far    : 0.5963
+20:08:11 |   Scheduler last_epoch  : 68
+20:08:11 |   Scheduler warmup_epochs : 5
+20:08:11 |   Scheduler total_epochs  : 75
+20:08:11 |   Current LR (backbone / decoder) : 2.45e-07 / 2.45e-06
+20:08:11 |   Model weights         : ✅ restored (unconditional)
+20:08:11 |   Optimizer state       : ✅ restored
+20:08:11 |   Scheduler state       : ✅ restored
+20:08:11 |   EMA state             : ✅ restored
+20:08:11 |   GradScaler state      : ✅ restored
+20:08:11 | ======================================================================
+20:08:11 | Config saved to outputs\exp_j5\config.json
+20:08:11 | 
+20:08:11 | Starting training...
+20:08:41 |     [mem] batch 0/1945 | alloc=9.98GB reserved=10.99GB peak=10.66GB | RAM=11.71/17.01GB
+20:08:41 |            self_rss=1.92GB children_rss=3.17GB children=4 | gpu0=11.50/11.94GB(97%)
+21:30:30 |     [mem] batch 389/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=10.91/17.01GB
+21:30:30 |            self_rss=0.44GB children_rss=0.48GB children=4 | gpu0=11.53/11.94GB(100%)
+21:32:38 |     [checkpoint] mid-epoch save at batch 399 (global_step=67000)
+22:46:06 |     [mem] batch 778/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=10.89/17.01GB
+22:46:06 |            self_rss=0.45GB children_rss=0.50GB children=4 | gpu0=11.53/11.94GB(100%)
+22:50:21 |     [checkpoint] mid-epoch save at batch 799 (global_step=67200)
+00:01:04 |     [mem] batch 1167/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=11.63/17.01GB
+00:01:04 |            self_rss=0.45GB children_rss=0.51GB children=4 | gpu0=11.55/11.94GB(100%)
+00:07:18 |     [checkpoint] mid-epoch save at batch 1199 (global_step=67400)
+01:14:17 |     [mem] batch 1556/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=11.89/17.01GB
+01:14:17 |            self_rss=0.45GB children_rss=0.53GB children=4 | gpu0=11.55/11.94GB(100%)
+01:22:32 |     [checkpoint] mid-epoch save at batch 1599 (global_step=67600)
+02:28:55 |     [mem] batch 1945/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=11.83/17.01GB
+02:28:55 |            self_rss=0.45GB children_rss=0.55GB children=4 | gpu0=11.55/11.94GB(100%)
+02:30:13 | Epoch 69/75  |  train_loss=0.0324  val_loss=0.0253
+02:30:13 |   Macro F1: 0.5913  (best: 0.5963 @ epoch —)
+02:30:13 |   MA=0.768  HE=0.656  IH=0.659  VB/IRMA=0.277  NV=0.494  VH=0.675  RD=0.609
+02:30:13 |   LR: backbone=1.8e-07  decoder=1.8e-06
+02:30:13 |   Epoch time: 22917s  |  Elapsed: 6h 22m 40s  |  ETA: 38h 11m 41s
+02:30:13 |   Checkpoint: not saved (val F1 below best)
+02:30:13 |   Thresholds: not yet optimized (runs after training completes)
+02:30:13 |   Resources: RAM=11.80/17.01GB  self_rss=0.49GB  GPU=[gpu0=11.55/11.94GB(10%)]  peak_ram=11.89GB  peak_gpu=9.98GB
+02:30:13 |   Checkpoint interval: every 200 steps  |  Resume state: resumed@epoch69
+02:30:45 |     [mem] batch 0/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.99/17.01GB
+02:30:45 |            self_rss=0.49GB children_rss=3.16GB children=4 | gpu0=11.55/11.94GB(100%)
+02:40:42 |     [checkpoint] mid-epoch save at batch 51 (global_step=67800)
+03:44:15 |     [mem] batch 389/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.44/17.01GB
+03:44:15 |            self_rss=0.46GB children_rss=3.08GB children=4 | gpu0=11.55/11.94GB(100%)
+03:56:30 |     [checkpoint] mid-epoch save at batch 451 (global_step=68000)
+04:59:07 |     [mem] batch 778/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.37/17.01GB
+04:59:07 |            self_rss=0.46GB children_rss=3.08GB children=4 | gpu0=11.56/11.94GB(100%)
+05:13:35 |     [checkpoint] mid-epoch save at batch 851 (global_step=68200)
+06:18:55 |     [mem] batch 1167/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.13/17.01GB
+06:18:55 |            self_rss=0.46GB children_rss=3.10GB children=4 | gpu0=11.56/11.94GB(100%)
+06:34:46 |     [checkpoint] mid-epoch save at batch 1251 (global_step=68400)
+07:35:19 |     [mem] batch 1556/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.11/17.01GB
+07:35:19 |            self_rss=0.47GB children_rss=3.10GB children=4 | gpu0=11.55/11.94GB(100%)
+07:53:57 |     [checkpoint] mid-epoch save at batch 1651 (global_step=68600)
+09:07:54 |     [mem] batch 1945/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.57/17.01GB
+09:07:54 |            self_rss=0.47GB children_rss=3.08GB children=4 | gpu0=11.59/11.94GB(100%)
+09:09:31 | Epoch 70/75  |  train_loss=0.0322  val_loss=0.0252
+09:09:31 |   Macro F1: 0.5919  (best: 0.5963 @ epoch —)
+09:09:31 |   MA=0.769  HE=0.659  IH=0.659  VB/IRMA=0.278  NV=0.489  VH=0.680  RD=0.609
+09:09:31 |   LR: backbone=1.3e-07  decoder=1.3e-06
+09:09:31 |   Epoch time: 23953s  |  Elapsed: 13h 1m 57s  |  ETA: 32h 15m 38s
+09:09:31 |   Checkpoint: not saved (val F1 below best)
+09:09:31 |   Thresholds: not yet optimized (runs after training completes)
+09:09:31 |   Resources: RAM=12.08/17.01GB  self_rss=0.50GB  GPU=[gpu0=11.60/11.94GB(8%)]  peak_ram=13.99GB  peak_gpu=9.98GB
+09:09:31 |   Checkpoint interval: every 200 steps  |  Resume state: resumed@epoch69
+09:10:19 |     [mem] batch 0/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=14.21/17.01GB
+09:10:19 |            self_rss=0.50GB children_rss=3.17GB children=4 | gpu0=11.60/11.94GB(100%)
+09:41:37 |     [checkpoint] mid-epoch save at batch 103 (global_step=68800)
+11:07:12 |     [mem] batch 389/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=14.07/17.01GB
+11:07:12 |            self_rss=0.47GB children_rss=3.13GB children=4 | gpu0=11.60/11.94GB(100%)
+11:41:35 |     [checkpoint] mid-epoch save at batch 503 (global_step=69000)
+13:03:35 |     [mem] batch 778/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=14.06/17.01GB
+13:03:35 |            self_rss=0.47GB children_rss=3.12GB children=4 | gpu0=11.60/11.94GB(100%)
+13:40:06 |     [checkpoint] mid-epoch save at batch 903 (global_step=69200)
+14:56:55 |     [mem] batch 1167/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=14.11/17.01GB
+14:56:55 |            self_rss=0.47GB children_rss=3.13GB children=4 | gpu0=11.60/11.94GB(99%)
+15:36:32 |     [checkpoint] mid-epoch save at batch 1303 (global_step=69400)
+16:51:23 |     [mem] batch 1556/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.06/17.01GB
+16:51:23 |            self_rss=0.45GB children_rss=1.74GB children=4 | gpu0=11.53/11.94GB(100%)
+17:29:40 |     [checkpoint] mid-epoch save at batch 1703 (global_step=69600)
+18:36:06 |     [mem] batch 1945/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=11.27/17.01GB
+18:36:06 |            self_rss=0.45GB children_rss=1.33GB children=4 | gpu0=11.52/11.94GB(99%)
+18:37:58 | Epoch 71/75  |  train_loss=0.0326  val_loss=0.0252
+18:37:58 |   Macro F1: 0.5899  (best: 0.5963 @ epoch —)
+18:37:58 |   MA=0.769  HE=0.661  IH=0.660  VB/IRMA=0.277  NV=0.483  VH=0.671  RD=0.609
+18:37:58 |   LR: backbone=8.0e-08  decoder=8.0e-07
+18:37:58 |   Epoch time: 34101s  |  Elapsed: 22h 30m 25s  |  ETA: 29h 25m 58s
+18:37:58 |   Checkpoint: not saved (val F1 below best)
+18:37:58 |   Thresholds: not yet optimized (runs after training completes)
+18:37:58 |   Resources: RAM=10.97/17.01GB  self_rss=0.47GB  GPU=[gpu0=11.53/11.94GB(4%)]  peak_ram=14.21GB  peak_gpu=9.98GB
+18:37:58 |   Checkpoint interval: every 200 steps  |  Resume state: resumed@epoch69
+18:38:51 |     [mem] batch 0/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.03/17.01GB
+18:38:51 |            self_rss=0.47GB children_rss=3.17GB children=4 | gpu0=11.54/11.94GB(100%)
+19:27:16 |     [checkpoint] mid-epoch save at batch 155 (global_step=69800)
+20:39:19 |     [mem] batch 389/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.66/17.01GB
+20:39:19 |            self_rss=0.46GB children_rss=3.14GB children=4 | gpu0=11.56/11.94GB(100%)
+21:29:34 |     [checkpoint] mid-epoch save at batch 555 (global_step=70000)
+22:34:27 |     [mem] batch 778/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.76/17.01GB
+22:34:27 |            self_rss=0.46GB children_rss=3.14GB children=4 | gpu0=11.56/11.94GB(100%)
+23:25:53 |     [checkpoint] mid-epoch save at batch 955 (global_step=70200)
+00:26:51 |     [mem] batch 1167/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.72/17.01GB
+00:26:51 |            self_rss=0.46GB children_rss=3.14GB children=4 | gpu0=11.56/11.94GB(100%)
+01:24:19 |     [checkpoint] mid-epoch save at batch 1355 (global_step=70400)
+02:25:43 |     [mem] batch 1556/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.77/17.01GB
+02:25:43 |            self_rss=0.46GB children_rss=3.16GB children=4 | gpu0=11.56/11.94GB(100%)
+03:24:36 |     [checkpoint] mid-epoch save at batch 1755 (global_step=70600)
+04:22:08 |     [mem] batch 1945/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.78/17.01GB
+04:22:08 |            self_rss=0.46GB children_rss=3.15GB children=4 | gpu0=11.56/11.94GB(100%)
+04:23:50 | Epoch 72/75  |  train_loss=0.0327  val_loss=0.0252
+04:23:50 |   Macro F1: 0.5913  (best: 0.5963 @ epoch —)
+04:23:50 |   MA=0.769  HE=0.661  IH=0.662  VB/IRMA=0.278  NV=0.488  VH=0.672  RD=0.609
+04:23:50 |   LR: backbone=4.5e-08  decoder=4.5e-07
+04:23:50 |   Epoch time: 35147s  |  Elapsed: 32h 16m 16s  |  ETA: 24h 14m 20s
+04:23:50 |   Checkpoint: not saved (val F1 below best)
+04:23:50 |   Thresholds: not yet optimized (runs after training completes)
+04:23:50 |   Resources: RAM=10.97/17.01GB  self_rss=0.49GB  GPU=[gpu0=11.56/11.94GB(10%)]  peak_ram=14.21GB  peak_gpu=9.98GB
+04:23:50 |   Checkpoint interval: every 200 steps  |  Resume state: resumed@epoch69
+04:24:38 |     [mem] batch 0/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.08/17.01GB
+04:24:38 |            self_rss=0.49GB children_rss=3.17GB children=4 | gpu0=11.56/11.94GB(100%)
+05:26:22 |     [checkpoint] mid-epoch save at batch 207 (global_step=70800)
+06:20:39 |     [mem] batch 389/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.32/17.01GB
+06:20:39 |            self_rss=0.46GB children_rss=3.11GB children=4 | gpu0=11.57/11.94GB(100%)
+07:23:52 |     [checkpoint] mid-epoch save at batch 607 (global_step=71000)
+08:13:00 |     [mem] batch 778/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.31/17.01GB
+08:13:00 |            self_rss=0.46GB children_rss=3.10GB children=4 | gpu0=11.57/11.94GB(100%)
+09:21:32 |     [checkpoint] mid-epoch save at batch 1007 (global_step=71200)
+10:09:34 |     [mem] batch 1167/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.57/17.01GB
+10:09:34 |            self_rss=0.46GB children_rss=3.11GB children=4 | gpu0=11.59/11.94GB(100%)
+11:21:24 |     [checkpoint] mid-epoch save at batch 1407 (global_step=71400)
+12:06:31 |     [mem] batch 1556/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.00/17.01GB
+12:06:31 |            self_rss=0.46GB children_rss=3.10GB children=4 | gpu0=11.59/11.94GB(100%)
+13:23:04 |     [checkpoint] mid-epoch save at batch 1807 (global_step=71600)
+14:04:35 |     [mem] batch 1945/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=12.68/17.01GB
+14:04:35 |            self_rss=0.46GB children_rss=3.09GB children=4 | gpu0=11.59/11.94GB(100%)
+14:06:11 | Epoch 73/75  |  train_loss=0.0320  val_loss=0.0252
+14:06:11 |   Macro F1: 0.5925  (best: 0.5963 @ epoch —)
+14:06:11 |   MA=0.769  HE=0.662  IH=0.664  VB/IRMA=0.279  NV=0.492  VH=0.672  RD=0.609
+14:06:11 |   LR: backbone=2.0e-08  decoder=2.0e-07
+14:06:11 |   Epoch time: 34936s  |  Elapsed: 41h 58m 38s  |  ETA: 17h 8m 3s
+14:06:11 |   Checkpoint: not saved (val F1 below best)
+14:06:11 |   Thresholds: not yet optimized (runs after training completes)
+14:06:11 |   Resources: RAM=11.35/17.01GB  self_rss=0.48GB  GPU=[gpu0=11.59/11.94GB(8%)]  peak_ram=14.21GB  peak_gpu=9.98GB
+14:06:11 |   Checkpoint interval: every 200 steps  |  Resume state: resumed@epoch69
+14:07:00 |     [mem] batch 0/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.36/17.01GB
+14:07:00 |            self_rss=0.48GB children_rss=3.16GB children=4 | gpu0=11.59/11.94GB(100%)
+15:24:51 |     [checkpoint] mid-epoch save at batch 259 (global_step=71800)
+16:02:36 |     [mem] batch 389/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.31/17.01GB
+16:02:36 |            self_rss=0.48GB children_rss=1.87GB children=4 | gpu0=11.61/11.94GB(100%)
+17:16:11 |     [checkpoint] mid-epoch save at batch 659 (global_step=72000)
+17:44:29 |     [mem] batch 778/1945 | alloc=9.98GB reserved=12.28GB peak=12.09GB | RAM=13.60/17.01GB
+17:44:29 |            self_rss=0.42GB children_rss=0.27GB children=4 | gpu0=11.56/11.94GB(99%)

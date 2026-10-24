@@ -1,0 +1,1825 @@
+10:10:03 | ======================================================================
+10:10:03 | Experiment: exp_b_uwf
+10:10:03 | Description: UWF-only baseline (Q2L + ASL)
+10:10:03 | Modalities: ['uwf']
+10:10:04 | Backbone: RETFound ViT-Large/16 (d=1024, LOCKED)
+10:10:04 | Device: cuda
+10:10:04 | Output: outputs\exp_b_uwf
+10:10:04 | ======================================================================
+10:10:04 | Building dataloaders...
+10:10:04 |   Train batches: 3416
+10:10:04 |   Val batches:   488
+10:10:04 |   Test (uwf):    2597 samples
+10:10:04 | Building model...
+10:10:04 |   --backbone-weights received: 'weights/RETFound_mae_meh.pth'
+10:10:15 |   RETFound checkpoint: RETFound_mae_meh.pth (weights/RETFound_mae_meh.pth) — 294/294 backbone params matched, 0 missing, 0 unrecognized unexpected keys — success=True
+10:10:15 |   Backbone: 304,149,504 total, 304,149,504 trainable
+10:10:15 |   Decoder:  46,205,959 total, 46,205,959 trainable
+10:10:15 |   Total:    350,355,463 params, 350,355,463 trainable
+10:10:15 |   Gradient checkpointing: ENABLED (requested=True)
+10:10:15 |   Class-balanced weighting (β=0.999):
+10:10:15 |     MA      :  4516 positives → weight 0.435
+10:10:15 |     HE      :  2486 positives → weight 0.469
+10:10:15 |     IH      :  2564 positives → weight 0.466
+10:10:15 |     VB_IRMA :   682 positives → weight 0.870
+10:10:15 |     NV      :   780 positives → weight 0.794
+10:10:15 |     VH      :   800 positives → weight 0.781
+10:10:15 |     RD      :   145 positives → weight 3.185
+10:10:15 |   ASL: γ+=0.0, γ-=6.0, clip=0.1, reduction=mean
+10:10:15 |   LR backbone: 1e-05
+10:10:15 |   LR decoder:  0.0001
+10:10:15 |   Weight decay: 0.05
+10:10:15 |   Grad accumulation: 8 steps (effective batch=16)
+10:10:15 |   Per-class classifiers: True
+10:10:15 |   Augmentation: CutMix(α=1.0) + MixUp(α=0.8) @ p=0.5
+10:10:16 |   CUDA devices visible to this process: 1 (CUDA_VISIBLE_DEVICES='0') — training on cuda only, no DataParallel/DDP.
+10:10:16 |   No self-imposed session timeout — training runs until Kaggle itself ends the session, or until cfg.epochs / early stopping is reached, whichever comes first. Resuming after a Kaggle-imposed stop is handled entirely by checkpoint auto-detection below, not by any wall-clock budget this process tracks itself.
+10:10:16 |   Mid-epoch checkpoint interval: 200 optimizer steps (enabled) — this, not any timeout prediction, is what makes an abrupt Kaggle kill resumable.
+10:10:16 | Config saved to outputs\exp_b_uwf\config.json
+10:10:16 | 
+10:10:16 | Starting training...
+10:10:17 |     [mem] batch 0/3416 | alloc=4.27GB reserved=4.59GB peak=4.35GB | RAM=14.98/17.01GB
+10:10:17 |            self_rss=4.72GB children_rss=0.00GB children=0 | gpu0=7.26/11.94GB(64%)
+10:14:10 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=13.70/17.01GB
+10:14:10 |            self_rss=4.95GB children_rss=0.00GB children=0 | gpu0=11.16/11.94GB(0%)
+10:17:58 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=13.25/17.01GB
+10:17:58 |            self_rss=4.44GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(55%)
+10:19:21 |     [checkpoint] mid-epoch save at batch 1599 (global_step=200)
+10:21:50 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.37/17.01GB
+10:21:50 |            self_rss=2.35GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(61%)
+10:25:35 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.74/17.01GB
+10:25:35 |            self_rss=2.35GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(91%)
+10:28:14 |     [checkpoint] mid-epoch save at batch 3199 (global_step=400)
+10:29:25 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.40/17.01GB
+10:29:25 |            self_rss=2.07GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(3%)
+10:31:11 | Epoch 1/75  |  train_loss=0.1050  val_loss=0.1098
+10:31:11 |   Macro F1: 0.2395  (best: 0.2395 @ epoch 1)
+10:31:11 |   MA=0.236  HE=0.536  IH=0.537  VB/IRMA=0.200  NV=0.118  VH=0.000  RD=0.049
+10:31:11 |   LR: backbone=2.0e-06  decoder=2.0e-05
+10:31:11 |   Epoch time: 1248s  |  Elapsed: 21m 7s  |  ETA: 25h 39m 38s
+10:31:11 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+10:31:11 |   Thresholds: not yet optimized (runs after training completes)
+10:31:11 |   Resources: RAM=12.66/17.01GB  self_rss=1.90GB  GPU=[gpu0=11.15/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+10:31:11 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+10:31:12 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.72/17.01GB
+10:31:12 |            self_rss=1.89GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(7%)
+10:34:58 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.41/17.01GB
+10:34:58 |            self_rss=1.91GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(21%)
+10:38:52 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.53/17.01GB
+10:38:52 |            self_rss=1.91GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+10:39:04 |     [checkpoint] mid-epoch save at batch 1383 (global_step=600)
+10:43:03 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.34/17.01GB
+10:43:03 |            self_rss=1.85GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(36%)
+10:47:09 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.13/17.01GB
+10:47:09 |            self_rss=1.31GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+10:48:44 |     [checkpoint] mid-epoch save at batch 2983 (global_step=800)
+10:51:19 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.19/17.01GB
+10:51:19 |            self_rss=1.26GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(1%)
+10:53:17 | Epoch 2/75  |  train_loss=0.0697  val_loss=0.0695
+10:53:17 |   Macro F1: 0.3558  (best: 0.3558 @ epoch 2)
+10:53:17 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.188  NV=0.200  VH=0.214  RD=0.000
+10:53:17 |   LR: backbone=4.0e-06  decoder=4.0e-05
+10:53:17 |   Epoch time: 1318s  |  Elapsed: 43m 13s  |  ETA: 25h 44m 25s
+10:53:17 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+10:53:17 |   Thresholds: not yet optimized (runs after training completes)
+10:53:17 |   Resources: RAM=12.62/17.01GB  self_rss=1.15GB  GPU=[gpu0=11.14/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+10:53:17 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+10:53:17 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.42/17.01GB
+10:53:17 |            self_rss=1.16GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(1%)
+10:57:24 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.21/17.01GB
+10:57:24 |            self_rss=1.13GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(78%)
+11:00:23 |     [checkpoint] mid-epoch save at batch 1167 (global_step=1000)
+11:01:36 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.96/17.01GB
+11:01:36 |            self_rss=1.11GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(80%)
+11:05:45 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.97/17.01GB
+11:05:45 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(73%)
+11:09:53 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.03/17.01GB
+11:09:53 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(9%)
+11:10:11 |     [checkpoint] mid-epoch save at batch 2767 (global_step=1200)
+11:14:05 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.86/17.01GB
+11:14:05 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(97%)
+11:16:04 | Epoch 3/75  |  train_loss=0.0622  val_loss=0.0639
+11:16:04 |   Macro F1: 0.4084  (best: 0.4084 @ epoch 3)
+11:16:04 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.182  NV=0.198  VH=0.214  RD=0.376
+11:16:04 |   LR: backbone=6.0e-06  decoder=6.0e-05
+11:16:04 |   Epoch time: 1359s  |  Elapsed: 1h 6m 0s  |  ETA: 25h 55m 33s
+11:16:04 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+11:16:04 |   Thresholds: not yet optimized (runs after training completes)
+11:16:04 |   Resources: RAM=12.47/17.01GB  self_rss=1.05GB  GPU=[gpu0=11.14/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+11:16:04 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+11:16:04 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.47/17.01GB
+11:16:04 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(66%)
+11:20:13 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.83/17.01GB
+11:20:13 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+11:21:55 |     [checkpoint] mid-epoch save at batch 951 (global_step=1400)
+11:24:24 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.94/17.01GB
+11:24:24 |            self_rss=1.05GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(95%)
+11:28:29 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.24/17.01GB
+11:28:29 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(21%)
+11:31:53 |     [checkpoint] mid-epoch save at batch 2551 (global_step=1600)
+11:33:03 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.95/17.01GB
+11:33:03 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(17%)
+11:37:09 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.98/17.01GB
+11:37:09 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(54%)
+11:39:07 | Epoch 4/75  |  train_loss=0.0551  val_loss=0.0603
+11:39:07 |   Macro F1: 0.4212  (best: 0.4212 @ epoch 4)
+11:39:07 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.183  NV=0.198  VH=0.215  RD=0.463
+11:39:07 |   LR: backbone=8.0e-06  decoder=8.0e-05
+11:39:07 |   Epoch time: 1376s  |  Elapsed: 1h 29m 3s  |  ETA: 26h 2m 22s
+11:39:07 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+11:39:07 |   Thresholds: not yet optimized (runs after training completes)
+11:39:07 |   Resources: RAM=12.19/17.01GB  self_rss=1.05GB  GPU=[gpu0=11.14/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+11:39:07 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+11:39:08 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.36/17.01GB
+11:39:08 |            self_rss=1.06GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(5%)
+11:43:16 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.64/17.01GB
+11:43:16 |            self_rss=1.05GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+11:43:39 |     [checkpoint] mid-epoch save at batch 735 (global_step=1800)
+11:47:29 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.55/17.01GB
+11:47:29 |            self_rss=0.73GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+11:51:35 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.31/17.01GB
+11:51:35 |            self_rss=0.72GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(97%)
+11:53:22 |     [checkpoint] mid-epoch save at batch 2335 (global_step=2000)
+11:55:46 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.34/17.01GB
+11:55:46 |            self_rss=0.43GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(22%)
+11:59:53 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.36/17.01GB
+11:59:53 |            self_rss=0.44GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(9%)
+12:01:51 | Epoch 5/75  |  train_loss=0.0510  val_loss=0.0542
+12:01:51 |   Macro F1: 0.4299  (best: 0.4299 @ epoch 5)
+12:01:51 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.195  NV=0.217  VH=0.274  RD=0.434
+12:01:51 |   LR: backbone=1.0e-05  decoder=1.0e-04
+12:01:51 |   Epoch time: 1357s  |  Elapsed: 1h 51m 47s  |  ETA: 25h 53m 2s
+12:01:51 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+12:01:51 |   Thresholds: not yet optimized (runs after training completes)
+12:01:51 |   Resources: RAM=11.89/17.01GB  self_rss=0.42GB  GPU=[gpu0=11.14/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+12:01:51 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+12:01:52 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.87/17.01GB
+12:01:52 |            self_rss=0.42GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(1%)
+12:05:05 |     [checkpoint] mid-epoch save at batch 519 (global_step=2200)
+12:06:03 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.33/17.01GB
+12:06:03 |            self_rss=0.40GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+12:10:09 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.08/17.01GB
+12:10:09 |            self_rss=0.40GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+12:14:08 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.30/17.01GB
+12:14:08 |            self_rss=0.40GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(94%)
+12:14:37 |     [checkpoint] mid-epoch save at batch 2119 (global_step=2400)
+12:18:08 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.15/17.01GB
+12:18:08 |            self_rss=0.39GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(3%)
+12:22:02 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.29/17.01GB
+12:22:02 |            self_rss=0.38GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(56%)
+12:23:52 | Epoch 6/75  |  train_loss=0.0503  val_loss=0.0473
+12:23:52 |   Macro F1: 0.4591  (best: 0.4591 @ epoch 6)
+12:23:52 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.277  NV=0.292  VH=0.359  RD=0.397
+12:23:52 |   LR: backbone=1.0e-05  decoder=1.0e-04
+12:23:52 |   Epoch time: 1314s  |  Elapsed: 2h 13m 48s  |  ETA: 25h 24m 47s
+12:23:52 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+12:23:52 |   Thresholds: not yet optimized (runs after training completes)
+12:23:52 |   Resources: RAM=11.62/17.01GB  self_rss=0.37GB  GPU=[gpu0=11.14/11.94GB(11%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+12:23:52 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+12:23:53 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.84/17.01GB
+12:23:53 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(11%)
+12:25:41 |     [checkpoint] mid-epoch save at batch 303 (global_step=2600)
+12:27:53 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.30/17.01GB
+12:27:53 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(96%)
+12:31:49 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.15/17.01GB
+12:31:49 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(92%)
+12:34:58 |     [checkpoint] mid-epoch save at batch 1903 (global_step=2800)
+12:35:48 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.45/17.01GB
+12:35:48 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(65%)
+12:39:42 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.29/17.01GB
+12:39:42 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(87%)
+12:43:36 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.28/17.01GB
+12:43:36 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(36%)
+12:45:28 | Epoch 7/75  |  train_loss=0.0481  val_loss=0.0421
+12:45:28 |   Macro F1: 0.4785  (best: 0.4785 @ epoch 7)
+12:45:28 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.314  NV=0.337  VH=0.421  RD=0.389
+12:45:28 |   LR: backbone=1.0e-05  decoder=1.0e-04
+12:45:28 |   Epoch time: 1288s  |  Elapsed: 2h 35m 24s  |  ETA: 24h 49m 53s
+12:45:28 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+12:45:28 |   Thresholds: not yet optimized (runs after training completes)
+12:45:28 |   Resources: RAM=11.77/17.01GB  self_rss=0.37GB  GPU=[gpu0=11.14/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+12:45:28 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+12:45:28 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.69/17.01GB
+12:45:28 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(28%)
+12:46:03 |     [checkpoint] mid-epoch save at batch 87 (global_step=3000)
+12:49:50 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.24/17.01GB
+12:49:50 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(91%)
+12:53:44 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+12:53:44 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(89%)
+12:55:38 |     [checkpoint] mid-epoch save at batch 1687 (global_step=3200)
+12:57:43 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.22/17.01GB
+12:57:43 |            self_rss=0.37GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+13:01:37 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+13:01:37 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(67%)
+13:04:53 |     [checkpoint] mid-epoch save at batch 3287 (global_step=3400)
+13:05:36 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+13:05:36 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(2%)
+13:07:27 | Epoch 8/75  |  train_loss=0.0462  val_loss=0.0387
+13:07:27 |   Macro F1: 0.4840  (best: 0.4840 @ epoch 8)
+13:07:27 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.314  NV=0.351  VH=0.461  RD=0.373
+13:07:27 |   LR: backbone=1.0e-05  decoder=1.0e-04
+13:07:27 |   Epoch time: 1312s  |  Elapsed: 2h 57m 23s  |  ETA: 24h 27m 2s
+13:07:27 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+13:07:27 |   Thresholds: not yet optimized (runs after training completes)
+13:07:27 |   Resources: RAM=11.74/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.14/11.94GB(11%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+13:07:27 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+13:07:27 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.91/17.01GB
+13:07:27 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(2%)
+13:11:25 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.35/17.01GB
+13:11:25 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(25%)
+13:15:21 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.30/17.01GB
+13:15:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(73%)
+13:16:02 |     [checkpoint] mid-epoch save at batch 1471 (global_step=3600)
+13:19:21 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+13:19:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(84%)
+13:23:14 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.30/17.01GB
+13:23:14 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(54%)
+13:25:14 |     [checkpoint] mid-epoch save at batch 3071 (global_step=3800)
+13:27:12 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.14/17.01GB
+13:27:12 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+13:29:01 | Epoch 9/75  |  train_loss=0.0449  val_loss=0.0361
+13:29:01 |   Macro F1: 0.4927  (best: 0.4927 @ epoch 9)
+13:29:01 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.304  NV=0.355  VH=0.501  RD=0.400
+13:29:01 |   LR: backbone=9.9e-06  decoder=9.9e-05
+13:29:01 |   Epoch time: 1287s  |  Elapsed: 3h 18m 57s  |  ETA: 23h 56m 23s
+13:29:01 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+13:29:01 |   Thresholds: not yet optimized (runs after training completes)
+13:29:01 |   Resources: RAM=11.85/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.14/11.94GB(11%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+13:29:01 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+13:29:01 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.59/17.01GB
+13:29:01 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(97%)
+13:32:55 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.38/17.01GB
+13:32:55 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+13:36:14 |     [checkpoint] mid-epoch save at batch 1255 (global_step=4000)
+13:36:51 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.25/17.01GB
+13:36:51 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(27%)
+13:40:46 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.23/17.01GB
+13:40:46 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(94%)
+13:44:42 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.40/17.01GB
+13:44:42 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(77%)
+13:45:29 |     [checkpoint] mid-epoch save at batch 2855 (global_step=4200)
+13:48:42 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.23/17.01GB
+13:48:42 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(68%)
+13:50:34 | Epoch 10/75  |  train_loss=0.0444  val_loss=0.0341
+13:50:34 |   Macro F1: 0.4992  (best: 0.4992 @ epoch 10)
+13:50:34 |   MA=0.799  HE=0.552  IH=0.537  VB/IRMA=0.300  NV=0.361  VH=0.547  RD=0.397
+13:50:34 |   LR: backbone=9.9e-06  decoder=9.9e-05
+13:50:34 |   Epoch time: 1286s  |  Elapsed: 3h 40m 30s  |  ETA: 23h 28m 8s
+13:50:34 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+13:50:34 |   Thresholds: not yet optimized (runs after training completes)
+13:50:34 |   Resources: RAM=12.08/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.14/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+13:50:34 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+13:50:34 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.90/17.01GB
+13:50:34 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(10%)
+13:54:29 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.04/17.01GB
+13:54:29 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+13:56:36 |     [checkpoint] mid-epoch save at batch 1039 (global_step=4400)
+13:58:29 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+13:58:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+14:02:23 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.15/17.01GB
+14:02:23 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(4%)
+14:05:51 |     [checkpoint] mid-epoch save at batch 2639 (global_step=4600)
+14:06:23 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.27/17.01GB
+14:06:23 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(29%)
+14:10:26 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.16/17.01GB
+14:10:26 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+14:12:43 | Epoch 11/75  |  train_loss=0.0438  val_loss=0.0332
+14:12:43 |   Macro F1: 0.5132  (best: 0.5132 @ epoch 11)
+14:12:43 |   MA=0.799  HE=0.552  IH=0.546  VB/IRMA=0.299  NV=0.365  VH=0.599  RD=0.433
+14:12:43 |   LR: backbone=9.8e-06  decoder=9.8e-05
+14:12:43 |   Epoch time: 1322s  |  Elapsed: 4h 2m 39s  |  ETA: 23h 13m 25s
+14:12:43 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+14:12:43 |   Thresholds: not yet optimized (runs after training completes)
+14:12:43 |   Resources: RAM=11.71/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.14/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+14:12:43 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+14:12:43 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.73/17.01GB
+14:12:43 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(0%)
+14:16:41 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.25/17.01GB
+14:16:41 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(14%)
+14:17:33 |     [checkpoint] mid-epoch save at batch 823 (global_step=4800)
+14:20:38 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.05/17.01GB
+14:20:38 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(48%)
+14:24:32 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.00/17.01GB
+14:24:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(90%)
+14:26:44 |     [checkpoint] mid-epoch save at batch 2423 (global_step=5000)
+14:28:28 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.26/17.01GB
+14:28:28 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(86%)
+14:32:23 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.12/17.01GB
+14:32:23 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(78%)
+14:34:14 | Epoch 12/75  |  train_loss=0.0432  val_loss=0.0327
+14:34:14 |   Macro F1: 0.5241  (best: 0.5241 @ epoch 12)
+14:34:14 |   MA=0.799  HE=0.554  IH=0.560  VB/IRMA=0.297  NV=0.375  VH=0.630  RD=0.453
+14:34:14 |   LR: backbone=9.8e-06  decoder=9.8e-05
+14:34:14 |   Epoch time: 1284s  |  Elapsed: 4h 24m 10s  |  ETA: 22h 44m 39s
+14:34:14 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+14:34:14 |   Thresholds: not yet optimized (runs after training completes)
+14:34:14 |   Resources: RAM=11.75/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.14/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+14:34:14 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+14:34:15 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.66/17.01GB
+14:34:15 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(9%)
+14:37:49 |     [checkpoint] mid-epoch save at batch 607 (global_step=5200)
+14:38:15 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.19/17.01GB
+14:38:15 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(96%)
+14:42:08 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.13/17.01GB
+14:42:08 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(4%)
+14:46:03 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+14:46:03 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(95%)
+14:47:02 |     [checkpoint] mid-epoch save at batch 2207 (global_step=5400)
+14:50:02 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.07/17.01GB
+14:50:02 |            self_rss=0.34GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(89%)
+14:53:58 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+14:53:58 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(97%)
+14:55:49 | Epoch 13/75  |  train_loss=0.0425  val_loss=0.0322
+14:55:49 |   Macro F1: 0.5261  (best: 0.5261 @ epoch 13)
+14:55:49 |   MA=0.799  HE=0.555  IH=0.580  VB/IRMA=0.298  NV=0.381  VH=0.582  RD=0.487
+14:55:49 |   LR: backbone=9.7e-06  decoder=9.7e-05
+14:55:49 |   Epoch time: 1288s  |  Elapsed: 4h 45m 45s  |  ETA: 22h 19m 17s
+14:55:49 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+14:55:49 |   Thresholds: not yet optimized (runs after training completes)
+14:55:49 |   Resources: RAM=11.69/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+14:55:49 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+14:55:50 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.83/17.01GB
+14:55:50 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(2%)
+14:58:10 |     [checkpoint] mid-epoch save at batch 391 (global_step=5600)
+14:59:51 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.38/17.01GB
+14:59:51 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(60%)
+15:03:47 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.14/17.01GB
+15:03:47 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(96%)
+15:07:27 |     [checkpoint] mid-epoch save at batch 1991 (global_step=5800)
+15:07:47 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.43/17.01GB
+15:07:47 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(10%)
+15:11:43 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.13/17.01GB
+15:11:43 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(39%)
+15:15:36 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.20/17.01GB
+15:15:36 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(91%)
+15:17:27 | Epoch 14/75  |  train_loss=0.0423  val_loss=0.0318
+15:17:27 |   Macro F1: 0.5310  (best: 0.5310 @ epoch 14)
+15:17:27 |   MA=0.799  HE=0.554  IH=0.588  VB/IRMA=0.299  NV=0.379  VH=0.594  RD=0.504
+15:17:27 |   LR: backbone=9.6e-06  decoder=9.6e-05
+15:17:27 |   Epoch time: 1290s  |  Elapsed: 5h 7m 23s  |  ETA: 21h 55m 56s
+15:17:27 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+15:17:27 |   Thresholds: not yet optimized (runs after training completes)
+15:17:27 |   Resources: RAM=11.79/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+15:17:27 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+15:17:28 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.80/17.01GB
+15:17:28 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(1%)
+15:18:32 |     [checkpoint] mid-epoch save at batch 175 (global_step=6000)
+15:21:27 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.02/17.01GB
+15:21:27 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(69%)
+15:25:20 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.00/17.01GB
+15:25:20 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(88%)
+15:27:44 |     [checkpoint] mid-epoch save at batch 1775 (global_step=6200)
+15:29:19 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.14/17.01GB
+15:29:19 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(67%)
+15:33:21 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.96/17.01GB
+15:33:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(49%)
+15:37:20 |     [checkpoint] mid-epoch save at batch 3375 (global_step=6400)
+15:37:33 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+15:37:33 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(37%)
+15:39:25 | Epoch 15/75  |  train_loss=0.0423  val_loss=0.0316
+15:39:25 |   Macro F1: 0.5442  (best: 0.5442 @ epoch 15)
+15:39:25 |   MA=0.799  HE=0.557  IH=0.626  VB/IRMA=0.296  NV=0.385  VH=0.628  RD=0.518
+15:39:25 |   LR: backbone=9.5e-06  decoder=9.5e-05
+15:39:25 |   Epoch time: 1310s  |  Elapsed: 5h 29m 21s  |  ETA: 21h 38m 59s
+15:39:25 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+15:39:25 |   Thresholds: not yet optimized (runs after training completes)
+15:39:25 |   Resources: RAM=11.41/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+15:39:25 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+15:39:25 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.43/17.01GB
+15:39:25 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+15:43:22 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.14/17.01GB
+15:43:22 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(80%)
+15:47:18 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+15:47:18 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(96%)
+15:48:30 |     [checkpoint] mid-epoch save at batch 1559 (global_step=6600)
+15:51:19 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.13/17.01GB
+15:51:19 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(71%)
+15:55:13 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+15:55:13 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(25%)
+15:57:44 |     [checkpoint] mid-epoch save at batch 3159 (global_step=6800)
+15:59:13 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.24/17.01GB
+15:59:13 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(18%)
+16:01:05 | Epoch 16/75  |  train_loss=0.0411  val_loss=0.0314
+16:01:05 |   Macro F1: 0.5521  (best: 0.5521 @ epoch 16)
+16:01:05 |   MA=0.799  HE=0.557  IH=0.644  VB/IRMA=0.298  NV=0.393  VH=0.636  RD=0.537
+16:01:05 |   LR: backbone=9.4e-06  decoder=9.4e-05
+16:01:05 |   Epoch time: 1293s  |  Elapsed: 5h 51m 1s  |  ETA: 21h 15m 41s
+16:01:05 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+16:01:05 |   Thresholds: not yet optimized (runs after training completes)
+16:01:05 |   Resources: RAM=11.80/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+16:01:05 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+16:01:06 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.55/17.01GB
+16:01:06 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(34%)
+16:05:02 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.10/17.01GB
+16:05:02 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(59%)
+16:08:53 |     [checkpoint] mid-epoch save at batch 1343 (global_step=7000)
+16:09:01 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+16:09:01 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(77%)
+16:12:57 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.03/17.01GB
+16:12:57 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+16:16:51 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.08/17.01GB
+16:16:51 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(67%)
+16:18:09 |     [checkpoint] mid-epoch save at batch 2943 (global_step=7200)
+16:20:51 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.07/17.01GB
+16:20:51 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(52%)
+16:22:42 | Epoch 17/75  |  train_loss=0.0414  val_loss=0.0312
+16:22:42 |   Macro F1: 0.5570  (best: 0.5570 @ epoch 17)
+16:22:42 |   MA=0.799  HE=0.575  IH=0.645  VB/IRMA=0.298  NV=0.400  VH=0.639  RD=0.542
+16:22:42 |   LR: backbone=9.3e-06  decoder=9.3e-05
+16:22:42 |   Epoch time: 1290s  |  Elapsed: 6h 12m 38s  |  ETA: 20h 51m 54s
+16:22:42 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+16:22:42 |   Thresholds: not yet optimized (runs after training completes)
+16:22:42 |   Resources: RAM=11.58/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.15/11.94GB(11%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+16:22:42 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+16:22:43 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.57/17.01GB
+16:22:43 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(5%)
+16:26:38 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.88/17.01GB
+16:26:38 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+16:29:15 |     [checkpoint] mid-epoch save at batch 1127 (global_step=7400)
+16:30:37 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.14/17.01GB
+16:30:37 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(98%)
+16:34:32 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+16:34:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(37%)
+16:38:31 |     [checkpoint] mid-epoch save at batch 2727 (global_step=7600)
+16:38:32 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.35/17.01GB
+16:38:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(57%)
+16:42:27 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.21/17.01GB
+16:42:27 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(55%)
+16:44:17 | Epoch 18/75  |  train_loss=0.0412  val_loss=0.0309
+16:44:17 |   Macro F1: 0.5529  (best: 0.5570 @ epoch —)
+16:44:17 |   MA=0.799  HE=0.572  IH=0.649  VB/IRMA=0.301  NV=0.398  VH=0.629  RD=0.522
+16:44:17 |   LR: backbone=9.2e-06  decoder=9.2e-05
+16:44:17 |   Epoch time: 1289s  |  Elapsed: 6h 34m 13s  |  ETA: 20h 28m 44s
+16:44:17 |   Checkpoint: not saved (val F1 below best)
+16:44:17 |   Thresholds: not yet optimized (runs after training completes)
+16:44:17 |   Resources: RAM=11.42/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+16:44:17 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+16:44:17 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.57/17.01GB
+16:44:17 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(31%)
+16:48:12 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.92/17.01GB
+16:48:12 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(98%)
+16:49:34 |     [checkpoint] mid-epoch save at batch 911 (global_step=7800)
+16:52:11 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.92/17.01GB
+16:52:11 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+16:56:17 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.81/17.01GB
+16:56:17 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(43%)
+16:59:10 |     [checkpoint] mid-epoch save at batch 2511 (global_step=8000)
+17:00:25 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.04/17.01GB
+17:00:25 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(49%)
+17:04:18 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.98/17.01GB
+17:04:18 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(56%)
+17:06:07 | Epoch 19/75  |  train_loss=0.0408  val_loss=0.0309
+17:06:07 |   Macro F1: 0.5521  (best: 0.5570 @ epoch —)
+17:06:07 |   MA=0.799  HE=0.560  IH=0.635  VB/IRMA=0.301  NV=0.392  VH=0.614  RD=0.563
+17:06:07 |   LR: backbone=9.0e-06  decoder=9.0e-05
+17:06:07 |   Epoch time: 1306s  |  Elapsed: 6h 56m 3s  |  ETA: 20h 10m 40s
+17:06:07 |   Checkpoint: not saved (val F1 below best)
+17:06:07 |   Thresholds: not yet optimized (runs after training completes)
+17:06:07 |   Resources: RAM=11.49/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.15/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+17:06:07 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+17:06:08 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.56/17.01GB
+17:06:08 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+17:10:04 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.05/17.01GB
+17:10:04 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(5%)
+17:10:13 |     [checkpoint] mid-epoch save at batch 695 (global_step=8200)
+17:14:04 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+17:14:04 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(72%)
+17:17:56 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.80/17.01GB
+17:17:56 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(33%)
+17:19:24 |     [checkpoint] mid-epoch save at batch 2295 (global_step=8400)
+17:21:54 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.93/17.01GB
+17:21:54 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(8%)
+17:25:46 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.93/17.01GB
+17:25:46 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(82%)
+17:27:36 | Epoch 20/75  |  train_loss=0.0399  val_loss=0.0308
+17:27:36 |   Macro F1: 0.5594  (best: 0.5594 @ epoch 20)
+17:27:36 |   MA=0.799  HE=0.556  IH=0.632  VB/IRMA=0.301  NV=0.408  VH=0.632  RD=0.586
+17:27:36 |   LR: backbone=8.9e-06  decoder=8.9e-05
+17:27:36 |   Epoch time: 1282s  |  Elapsed: 7h 17m 32s  |  ETA: 19h 44m 50s
+17:27:36 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+17:27:36 |   Thresholds: not yet optimized (runs after training completes)
+17:27:36 |   Resources: RAM=11.42/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+17:27:36 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+17:27:37 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.37/17.01GB
+17:27:37 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+17:30:25 |     [checkpoint] mid-epoch save at batch 479 (global_step=8600)
+17:31:35 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.06/17.01GB
+17:31:35 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(53%)
+17:35:28 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.64/17.01GB
+17:35:28 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+17:39:21 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.73/17.01GB
+17:39:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(36%)
+17:39:36 |     [checkpoint] mid-epoch save at batch 2079 (global_step=8800)
+17:43:20 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.81/17.01GB
+17:43:20 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(83%)
+17:47:13 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.70/17.01GB
+17:47:13 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(89%)
+17:49:03 | Epoch 21/75  |  train_loss=0.0401  val_loss=0.0306
+17:49:03 |   Macro F1: 0.5625  (best: 0.5625 @ epoch 21)
+17:49:03 |   MA=0.799  HE=0.558  IH=0.636  VB/IRMA=0.303  NV=0.419  VH=0.653  RD=0.569
+17:49:03 |   LR: backbone=8.8e-06  decoder=8.8e-05
+17:49:03 |   Epoch time: 1280s  |  Elapsed: 7h 38m 59s  |  ETA: 19h 19m 51s
+17:49:03 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+17:49:03 |   Thresholds: not yet optimized (runs after training completes)
+17:49:03 |   Resources: RAM=11.23/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+17:49:03 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+17:49:04 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.33/17.01GB
+17:49:04 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(29%)
+17:50:39 |     [checkpoint] mid-epoch save at batch 263 (global_step=9000)
+17:53:03 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.71/17.01GB
+17:53:03 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(33%)
+17:56:55 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.81/17.01GB
+17:56:55 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(7%)
+17:59:51 |     [checkpoint] mid-epoch save at batch 1863 (global_step=9200)
+18:00:55 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.87/17.01GB
+18:00:55 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+18:04:48 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.75/17.01GB
+18:04:48 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+18:08:41 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+18:08:41 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(29%)
+18:10:32 | Epoch 22/75  |  train_loss=0.0402  val_loss=0.0304
+18:10:32 |   Macro F1: 0.5666  (best: 0.5666 @ epoch 22)
+18:10:32 |   MA=0.799  HE=0.566  IH=0.646  VB/IRMA=0.302  NV=0.430  VH=0.653  RD=0.569
+18:10:32 |   LR: backbone=8.6e-06  decoder=8.6e-05
+18:10:32 |   Epoch time: 1281s  |  Elapsed: 8h 0m 28s  |  ETA: 18h 56m 23s
+18:10:32 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+18:10:32 |   Thresholds: not yet optimized (runs after training completes)
+18:10:32 |   Resources: RAM=11.28/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(6%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+18:10:32 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+18:10:32 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.26/17.01GB
+18:10:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(4%)
+18:10:52 |     [checkpoint] mid-epoch save at batch 47 (global_step=9400)
+18:14:31 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.80/17.01GB
+18:14:31 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(92%)
+18:18:26 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.20/17.01GB
+18:18:26 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(20%)
+18:20:22 |     [checkpoint] mid-epoch save at batch 1647 (global_step=9600)
+18:22:46 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.85/17.01GB
+18:22:46 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(29%)
+18:26:37 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.80/17.01GB
+18:26:37 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(99%)
+18:29:38 |     [checkpoint] mid-epoch save at batch 3247 (global_step=9800)
+18:30:35 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.95/17.01GB
+18:30:35 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(1%)
+18:32:26 | Epoch 23/75  |  train_loss=0.0390  val_loss=0.0302
+18:32:26 |   Macro F1: 0.5712  (best: 0.5712 @ epoch 23)
+18:32:26 |   MA=0.799  HE=0.582  IH=0.644  VB/IRMA=0.309  NV=0.438  VH=0.657  RD=0.569
+18:32:26 |   LR: backbone=8.5e-06  decoder=8.5e-05
+18:32:26 |   Epoch time: 1307s  |  Elapsed: 8h 22m 22s  |  ETA: 18h 40m 21s
+18:32:26 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+18:32:26 |   Thresholds: not yet optimized (runs after training completes)
+18:32:26 |   Resources: RAM=11.30/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+18:32:26 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+18:32:26 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.33/17.01GB
+18:32:26 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(10%)
+18:36:21 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+18:36:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(47%)
+18:40:15 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+18:40:15 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(80%)
+18:40:42 |     [checkpoint] mid-epoch save at batch 1431 (global_step=10000)
+18:44:13 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.91/17.01GB
+18:44:13 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+18:48:06 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+18:48:06 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+18:49:53 |     [checkpoint] mid-epoch save at batch 3031 (global_step=10200)
+18:52:03 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.64/17.01GB
+18:52:03 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+18:53:54 | Epoch 24/75  |  train_loss=0.0389  val_loss=0.0301
+18:53:54 |   Macro F1: 0.5759  (best: 0.5759 @ epoch 24)
+18:53:54 |   MA=0.799  HE=0.592  IH=0.639  VB/IRMA=0.307  NV=0.449  VH=0.648  RD=0.598
+18:53:54 |   LR: backbone=8.3e-06  decoder=8.3e-05
+18:53:54 |   Epoch time: 1281s  |  Elapsed: 8h 43m 50s  |  ETA: 18h 15m 48s
+18:53:54 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+18:53:54 |   Thresholds: not yet optimized (runs after training completes)
+18:53:54 |   Resources: RAM=11.34/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.11/11.94GB(12%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+18:53:54 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+18:53:54 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.37/17.01GB
+18:53:54 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+18:57:48 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+18:57:48 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+19:00:55 |     [checkpoint] mid-epoch save at batch 1215 (global_step=10400)
+19:01:47 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.81/17.01GB
+19:01:47 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(99%)
+19:05:41 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.65/17.01GB
+19:05:41 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(67%)
+19:09:34 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.64/17.01GB
+19:09:34 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+19:10:07 |     [checkpoint] mid-epoch save at batch 2815 (global_step=10600)
+19:13:32 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.02/17.01GB
+19:13:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(75%)
+19:15:21 | Epoch 25/75  |  train_loss=0.0391  val_loss=0.0299
+19:15:21 |   Macro F1: 0.5740  (best: 0.5759 @ epoch —)
+19:15:21 |   MA=0.799  HE=0.596  IH=0.639  VB/IRMA=0.307  NV=0.415  VH=0.637  RD=0.624
+19:15:21 |   LR: backbone=8.1e-06  decoder=8.1e-05
+19:15:21 |   Epoch time: 1282s  |  Elapsed: 9h 5m 17s  |  ETA: 17h 52m 37s
+19:15:21 |   Checkpoint: not saved (val F1 below best)
+19:15:21 |   Thresholds: not yet optimized (runs after training completes)
+19:15:21 |   Resources: RAM=11.23/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+19:15:21 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+19:15:21 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.26/17.01GB
+19:15:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(1%)
+19:19:16 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+19:19:16 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(17%)
+19:21:09 |     [checkpoint] mid-epoch save at batch 999 (global_step=10800)
+19:23:12 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.65/17.01GB
+19:23:12 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(18%)
+19:27:07 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.75/17.01GB
+19:27:07 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+19:30:21 |     [checkpoint] mid-epoch save at batch 2599 (global_step=11000)
+19:31:06 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+19:31:06 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(73%)
+19:34:59 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+19:34:59 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(79%)
+19:36:49 | Epoch 26/75  |  train_loss=0.0393  val_loss=0.0298
+19:36:49 |   Macro F1: 0.5801  (best: 0.5801 @ epoch 26)
+19:36:49 |   MA=0.799  HE=0.592  IH=0.650  VB/IRMA=0.310  NV=0.447  VH=0.639  RD=0.624
+19:36:49 |   LR: backbone=7.9e-06  decoder=7.9e-05
+19:36:49 |   Epoch time: 1281s  |  Elapsed: 9h 26m 45s  |  ETA: 17h 29m 42s
+19:36:49 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+19:36:49 |   Thresholds: not yet optimized (runs after training completes)
+19:36:49 |   Resources: RAM=11.38/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+19:36:49 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+19:36:50 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.16/17.01GB
+19:36:50 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(36%)
+19:40:45 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.74/17.01GB
+19:40:45 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(1%)
+19:41:25 |     [checkpoint] mid-epoch save at batch 783 (global_step=11200)
+19:45:06 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+19:45:06 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(12%)
+19:48:57 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+19:48:57 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+19:50:55 |     [checkpoint] mid-epoch save at batch 2383 (global_step=11400)
+19:52:54 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.99/17.01GB
+19:52:54 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(88%)
+19:56:48 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.61/17.01GB
+19:56:48 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+19:58:36 | Epoch 27/75  |  train_loss=0.0391  val_loss=0.0297
+19:58:36 |   Macro F1: 0.5770  (best: 0.5801 @ epoch —)
+19:58:36 |   MA=0.799  HE=0.596  IH=0.644  VB/IRMA=0.305  NV=0.452  VH=0.632  RD=0.611
+19:58:36 |   LR: backbone=7.8e-06  decoder=7.8e-05
+19:58:36 |   Epoch time: 1302s  |  Elapsed: 9h 48m 32s  |  ETA: 17h 12m 19s
+19:58:36 |   Checkpoint: not saved (val F1 below best)
+19:58:36 |   Thresholds: not yet optimized (runs after training completes)
+19:58:36 |   Resources: RAM=11.27/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+19:58:36 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+19:58:36 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.23/17.01GB
+19:58:36 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(9%)
+20:01:57 |     [checkpoint] mid-epoch save at batch 567 (global_step=11600)
+20:02:36 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.85/17.01GB
+20:02:36 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+20:06:29 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.87/17.01GB
+20:06:29 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(30%)
+20:10:22 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.82/17.01GB
+20:10:22 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(95%)
+20:11:07 |     [checkpoint] mid-epoch save at batch 2167 (global_step=11800)
+20:14:21 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+20:14:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(96%)
+20:18:15 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+20:18:15 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(3%)
+20:20:03 | Epoch 28/75  |  train_loss=0.0388  val_loss=0.0298
+20:20:03 |   Macro F1: 0.5790  (best: 0.5801 @ epoch —)
+20:20:03 |   MA=0.799  HE=0.607  IH=0.654  VB/IRMA=0.303  NV=0.446  VH=0.646  RD=0.598
+20:20:03 |   LR: backbone=7.6e-06  decoder=7.6e-05
+20:20:03 |   Epoch time: 1282s  |  Elapsed: 10h 9m 59s  |  ETA: 16h 48m 55s
+20:20:03 |   Checkpoint: not saved (val F1 below best)
+20:20:03 |   Thresholds: not yet optimized (runs after training completes)
+20:20:03 |   Resources: RAM=11.19/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+20:20:03 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+20:20:04 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.25/17.01GB
+20:20:04 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(48%)
+20:22:08 |     [checkpoint] mid-epoch save at batch 351 (global_step=12000)
+20:24:02 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+20:24:02 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(65%)
+20:27:54 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.71/17.01GB
+20:27:54 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(84%)
+20:31:18 |     [checkpoint] mid-epoch save at batch 1951 (global_step=12200)
+20:31:51 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.07/17.01GB
+20:31:51 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(95%)
+20:35:44 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.87/17.01GB
+20:35:44 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+20:39:39 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.69/17.01GB
+20:39:39 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(91%)
+20:41:30 | Epoch 29/75  |  train_loss=0.0372  val_loss=0.0296
+20:41:30 |   Macro F1: 0.5900  (best: 0.5900 @ epoch 29)
+20:41:30 |   MA=0.799  HE=0.608  IH=0.659  VB/IRMA=0.303  NV=0.452  VH=0.650  RD=0.659
+20:41:30 |   LR: backbone=7.4e-06  decoder=7.4e-05
+20:41:30 |   Epoch time: 1280s  |  Elapsed: 10h 31m 26s  |  ETA: 16h 25m 30s
+20:41:30 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+20:41:30 |   Thresholds: not yet optimized (runs after training completes)
+20:41:30 |   Resources: RAM=11.27/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.11/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+20:41:30 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+20:41:30 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.26/17.01GB
+20:41:30 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+20:42:22 |     [checkpoint] mid-epoch save at batch 135 (global_step=12400)
+20:45:28 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+20:45:28 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(79%)
+20:49:22 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+20:49:22 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(59%)
+20:51:33 |     [checkpoint] mid-epoch save at batch 1735 (global_step=12600)
+20:53:21 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+20:53:21 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+20:57:15 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.45/17.01GB
+20:57:15 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(69%)
+21:00:47 |     [checkpoint] mid-epoch save at batch 3335 (global_step=12800)
+21:01:14 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.01/17.01GB
+21:01:14 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(12%)
+21:03:06 | Epoch 30/75  |  train_loss=0.0376  val_loss=0.0294
+21:03:06 |   Macro F1: 0.5917  (best: 0.5917 @ epoch 30)
+21:03:06 |   MA=0.799  HE=0.623  IH=0.668  VB/IRMA=0.304  NV=0.448  VH=0.648  RD=0.652
+21:03:06 |   LR: backbone=7.2e-06  decoder=7.2e-05
+21:03:06 |   Epoch time: 1288s  |  Elapsed: 10h 53m 2s  |  ETA: 16h 4m 44s
+21:03:06 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+21:03:06 |   Thresholds: not yet optimized (runs after training completes)
+21:03:06 |   Resources: RAM=11.38/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+21:03:06 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+21:03:06 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+21:03:06 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+21:07:07 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.56/17.01GB
+21:07:07 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(82%)
+21:11:16 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.61/17.01GB
+21:11:16 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(34%)
+21:12:13 |     [checkpoint] mid-epoch save at batch 1519 (global_step=13000)
+21:15:13 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.90/17.01GB
+21:15:13 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(14%)
+21:19:08 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.82/17.01GB
+21:19:08 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(95%)
+21:21:25 |     [checkpoint] mid-epoch save at batch 3119 (global_step=13200)
+21:23:05 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.68/17.01GB
+21:23:05 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(90%)
+21:24:56 | Epoch 31/75  |  train_loss=0.0382  val_loss=0.0294
+21:24:56 |   Macro F1: 0.5998  (best: 0.5998 @ epoch 31)
+21:24:56 |   MA=0.799  HE=0.628  IH=0.674  VB/IRMA=0.306  NV=0.464  VH=0.661  RD=0.667
+21:24:56 |   LR: backbone=7.0e-06  decoder=7.0e-05
+21:24:56 |   Epoch time: 1303s  |  Elapsed: 11h 14m 52s  |  ETA: 15h 47m 3s
+21:24:56 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+21:24:56 |   Thresholds: not yet optimized (runs after training completes)
+21:24:56 |   Resources: RAM=11.29/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.11/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+21:24:56 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+21:24:56 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.20/17.01GB
+21:24:56 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+21:28:51 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.71/17.01GB
+21:28:51 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(98%)
+21:32:26 |     [checkpoint] mid-epoch save at batch 1303 (global_step=13400)
+21:32:48 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.90/17.01GB
+21:32:48 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(80%)
+21:36:41 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.78/17.01GB
+21:36:41 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(87%)
+21:40:36 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.90/17.01GB
+21:40:36 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(96%)
+21:41:37 |     [checkpoint] mid-epoch save at batch 2903 (global_step=13600)
+21:44:32 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+21:44:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(4%)
+21:46:26 | Epoch 32/75  |  train_loss=0.0373  val_loss=0.0292
+21:46:26 |   Macro F1: 0.6035  (best: 0.6035 @ epoch 32)
+21:46:26 |   MA=0.799  HE=0.628  IH=0.677  VB/IRMA=0.309  NV=0.473  VH=0.670  RD=0.667
+21:46:26 |   LR: backbone=6.8e-06  decoder=6.8e-05
+21:46:26 |   Epoch time: 1283s  |  Elapsed: 11h 36m 22s  |  ETA: 15h 23m 42s
+21:46:26 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+21:46:26 |   Thresholds: not yet optimized (runs after training completes)
+21:46:26 |   Resources: RAM=12.01/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.20/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+21:46:26 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+21:46:26 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.84/17.01GB
+21:46:26 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(8%)
+21:50:32 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.29/17.01GB
+21:50:32 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(0%)
+21:53:04 |     [checkpoint] mid-epoch save at batch 1087 (global_step=13800)
+21:54:45 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.11/17.01GB
+21:54:45 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(7%)
+21:58:49 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.27/17.01GB
+21:58:49 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(7%)
+22:02:43 |     [checkpoint] mid-epoch save at batch 2687 (global_step=14000)
+22:02:59 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.25/17.01GB
+22:02:59 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(84%)
+22:07:05 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.98/17.01GB
+22:07:05 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(95%)
+22:09:03 | Epoch 33/75  |  train_loss=0.0370  val_loss=0.0292
+22:09:03 |   Macro F1: 0.6050  (best: 0.6050 @ epoch 33)
+22:09:03 |   MA=0.799  HE=0.631  IH=0.681  VB/IRMA=0.310  NV=0.480  VH=0.674  RD=0.659
+22:09:03 |   LR: backbone=6.5e-06  decoder=6.5e-05
+22:09:03 |   Epoch time: 1350s  |  Elapsed: 11h 58m 59s  |  ETA: 15h 14m 57s
+22:09:03 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+22:09:03 |   Thresholds: not yet optimized (runs after training completes)
+22:09:03 |   Resources: RAM=11.57/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.20/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+22:09:03 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+22:09:03 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.70/17.01GB
+22:09:03 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(66%)
+22:13:10 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.27/17.01GB
+22:13:10 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(89%)
+22:14:24 |     [checkpoint] mid-epoch save at batch 871 (global_step=14200)
+22:17:23 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.20/17.01GB
+22:17:23 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(94%)
+22:21:29 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.96/17.01GB
+22:21:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(89%)
+22:24:04 |     [checkpoint] mid-epoch save at batch 2471 (global_step=14400)
+22:25:38 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.04/17.01GB
+22:25:38 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(0%)
+22:29:58 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.96/17.01GB
+22:29:58 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(94%)
+22:31:55 | Epoch 34/75  |  train_loss=0.0372  val_loss=0.0292
+22:31:55 |   Macro F1: 0.6097  (best: 0.6097 @ epoch 34)
+22:31:55 |   MA=0.799  HE=0.629  IH=0.684  VB/IRMA=0.312  NV=0.493  VH=0.684  RD=0.667
+22:31:55 |   LR: backbone=6.3e-06  decoder=6.3e-05
+22:31:55 |   Epoch time: 1365s  |  Elapsed: 12h 21m 51s  |  ETA: 15h 5m 2s
+22:31:55 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+22:31:55 |   Thresholds: not yet optimized (runs after training completes)
+22:31:55 |   Resources: RAM=11.62/17.01GB  self_rss=0.33GB  GPU=[gpu0=11.20/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+22:31:55 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+22:31:56 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.69/17.01GB
+22:31:56 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(38%)
+22:35:57 |     [checkpoint] mid-epoch save at batch 655 (global_step=14600)
+22:36:07 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.46/17.01GB
+22:36:07 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(0%)
+22:40:14 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.94/17.01GB
+22:40:14 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.21/11.94GB(0%)
+22:44:18 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.09/17.01GB
+22:44:18 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(78%)
+22:45:37 |     [checkpoint] mid-epoch save at batch 2255 (global_step=14800)
+22:48:27 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.94/17.01GB
+22:48:27 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(9%)
+22:52:31 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.25/17.01GB
+22:52:31 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(38%)
+22:54:27 | Epoch 35/75  |  train_loss=0.0375  val_loss=0.0293
+22:54:27 |   Macro F1: 0.6134  (best: 0.6134 @ epoch 35)
+22:54:27 |   MA=0.799  HE=0.633  IH=0.688  VB/IRMA=0.312  NV=0.495  VH=0.692  RD=0.674
+22:54:27 |   LR: backbone=6.1e-06  decoder=6.1e-05
+22:54:27 |   Epoch time: 1344s  |  Elapsed: 12h 44m 23s  |  ETA: 14h 46m 57s
+22:54:27 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+22:54:27 |   Thresholds: not yet optimized (runs after training completes)
+22:54:27 |   Resources: RAM=11.69/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.20/11.94GB(11%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+22:54:27 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+22:54:27 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.80/17.01GB
+22:54:27 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(0%)
+22:57:10 |     [checkpoint] mid-epoch save at batch 439 (global_step=15000)
+22:58:36 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.92/17.01GB
+22:58:36 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(0%)
+23:02:42 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.24/17.01GB
+23:02:42 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(0%)
+23:06:49 |     [checkpoint] mid-epoch save at batch 2039 (global_step=15200)
+23:06:53 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.45/17.01GB
+23:06:53 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(19%)
+23:10:59 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+23:10:59 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(40%)
+23:15:04 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.13/17.01GB
+23:15:04 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(32%)
+23:17:04 | Epoch 36/75  |  train_loss=0.0361  val_loss=0.0292
+23:17:04 |   Macro F1: 0.6160  (best: 0.6160 @ epoch 36)
+23:17:04 |   MA=0.799  HE=0.619  IH=0.691  VB/IRMA=0.312  NV=0.502  VH=0.699  RD=0.691
+23:17:04 |   LR: backbone=5.9e-06  decoder=5.9e-05
+23:17:04 |   Epoch time: 1349s  |  Elapsed: 13h 7m 0s  |  ETA: 14h 28m 30s
+23:17:04 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+23:17:04 |   Thresholds: not yet optimized (runs after training completes)
+23:17:04 |   Resources: RAM=11.74/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+23:17:04 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+23:17:05 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.63/17.01GB
+23:17:05 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+23:18:32 |     [checkpoint] mid-epoch save at batch 223 (global_step=15400)
+23:21:19 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.01/17.01GB
+23:21:19 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(92%)
+23:25:30 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.02/17.01GB
+23:25:30 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(38%)
+23:28:21 |     [checkpoint] mid-epoch save at batch 1823 (global_step=15600)
+23:29:43 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.03/17.01GB
+23:29:43 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(21%)
+23:33:48 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.90/17.01GB
+23:33:48 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(81%)
+23:37:57 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.81/17.01GB
+23:37:57 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(38%)
+23:39:56 | Epoch 37/75  |  train_loss=0.0362  val_loss=0.0291
+23:39:56 |   Macro F1: 0.6100  (best: 0.6160 @ epoch —)
+23:39:56 |   MA=0.799  HE=0.611  IH=0.686  VB/IRMA=0.313  NV=0.483  VH=0.678  RD=0.699
+23:39:56 |   LR: backbone=5.7e-06  decoder=5.7e-05
+23:39:56 |   Epoch time: 1366s  |  Elapsed: 13h 29m 52s  |  ETA: 14h 11m 52s
+23:39:56 |   Checkpoint: not saved (val F1 below best)
+23:39:56 |   Thresholds: not yet optimized (runs after training completes)
+23:39:56 |   Resources: RAM=11.44/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+23:39:56 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+23:39:56 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.44/17.01GB
+23:39:56 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(3%)
+23:40:05 |     [checkpoint] mid-epoch save at batch 7 (global_step=15800)
+23:44:27 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.05/17.01GB
+23:44:27 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(53%)
+23:48:34 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.22/17.01GB
+23:48:34 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(16%)
+23:50:05 |     [checkpoint] mid-epoch save at batch 1607 (global_step=16000)
+23:52:46 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+23:52:46 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(84%)
+23:56:53 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.00/17.01GB
+23:56:53 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(58%)
+23:59:50 |     [checkpoint] mid-epoch save at batch 3207 (global_step=16200)
+00:01:05 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.97/17.01GB
+00:01:05 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+00:03:00 | Epoch 38/75  |  train_loss=0.0361  val_loss=0.0290
+00:03:00 |   Macro F1: 0.6087  (best: 0.6160 @ epoch —)
+00:03:00 |   MA=0.799  HE=0.617  IH=0.684  VB/IRMA=0.312  NV=0.483  VH=0.674  RD=0.691
+00:03:00 |   LR: backbone=5.4e-06  decoder=5.4e-05
+00:03:00 |   Epoch time: 1380s  |  Elapsed: 13h 52m 56s  |  ETA: 13h 55m 53s
+00:03:00 |   Checkpoint: not saved (val F1 below best)
+00:03:00 |   Thresholds: not yet optimized (runs after training completes)
+00:03:00 |   Resources: RAM=11.53/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+00:03:00 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+00:03:01 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.65/17.01GB
+00:03:01 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+00:07:07 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.91/17.01GB
+00:07:07 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(37%)
+00:11:15 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+00:11:15 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+00:11:29 |     [checkpoint] mid-epoch save at batch 1391 (global_step=16400)
+00:15:27 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.99/17.01GB
+00:15:27 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(91%)
+00:19:35 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.11/17.01GB
+00:19:35 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(95%)
+00:21:13 |     [checkpoint] mid-epoch save at batch 2991 (global_step=16600)
+00:23:46 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.98/17.01GB
+00:23:46 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+00:25:44 | Epoch 39/75  |  train_loss=0.0358  val_loss=0.0291
+00:25:44 |   Macro F1: 0.6162  (best: 0.6162 @ epoch 39)
+00:25:44 |   MA=0.799  HE=0.634  IH=0.688  VB/IRMA=0.312  NV=0.494  VH=0.676  RD=0.709
+00:25:44 |   LR: backbone=5.2e-06  decoder=5.2e-05
+00:25:44 |   Epoch time: 1356s  |  Elapsed: 14h 15m 40s  |  ETA: 13h 33m 25s
+00:25:44 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+00:25:44 |   Thresholds: not yet optimized (runs after training completes)
+00:25:44 |   Resources: RAM=11.48/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+00:25:44 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+00:25:44 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.58/17.01GB
+00:25:44 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+00:29:53 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.04/17.01GB
+00:29:53 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(82%)
+00:32:56 |     [checkpoint] mid-epoch save at batch 1175 (global_step=16800)
+00:34:05 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.02/17.01GB
+00:34:05 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(53%)
+00:38:13 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.15/17.01GB
+00:38:13 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(83%)
+00:42:21 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.03/17.01GB
+00:42:21 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(1%)
+00:42:41 |     [checkpoint] mid-epoch save at batch 2775 (global_step=17000)
+00:46:33 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.14/17.01GB
+00:46:33 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(66%)
+00:48:32 | Epoch 40/75  |  train_loss=0.0359  val_loss=0.0291
+00:48:32 |   Macro F1: 0.6204  (best: 0.6204 @ epoch 40)
+00:48:32 |   MA=0.799  HE=0.639  IH=0.689  VB/IRMA=0.317  NV=0.505  VH=0.676  RD=0.718
+00:48:32 |   LR: backbone=5.0e-06  decoder=5.0e-05
+00:48:32 |   Epoch time: 1361s  |  Elapsed: 14h 38m 28s  |  ETA: 13h 11m 44s
+00:48:32 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+00:48:32 |   Thresholds: not yet optimized (runs after training completes)
+00:48:32 |   Resources: RAM=11.72/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+00:48:32 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+00:48:33 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.55/17.01GB
+00:48:33 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(10%)
+00:52:55 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.08/17.01GB
+00:52:55 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(96%)
+00:54:48 |     [checkpoint] mid-epoch save at batch 959 (global_step=17200)
+00:57:15 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.02/17.01GB
+00:57:15 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(89%)
+01:01:22 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.07/17.01GB
+01:01:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+01:04:31 |     [checkpoint] mid-epoch save at batch 2559 (global_step=17400)
+01:05:33 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.20/17.01GB
+01:05:33 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(76%)
+01:09:39 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.99/17.01GB
+01:09:39 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(20%)
+01:11:38 | Epoch 41/75  |  train_loss=0.0357  val_loss=0.0291
+01:11:38 |   Macro F1: 0.6245  (best: 0.6245 @ epoch 41)
+01:11:38 |   MA=0.799  HE=0.643  IH=0.697  VB/IRMA=0.317  NV=0.508  VH=0.670  RD=0.737
+01:11:38 |   LR: backbone=4.8e-06  decoder=4.8e-05
+01:11:38 |   Epoch time: 1379s  |  Elapsed: 15h 1m 34s  |  ETA: 12h 52m 46s
+01:11:38 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+01:11:38 |   Thresholds: not yet optimized (runs after training completes)
+01:11:38 |   Resources: RAM=11.61/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.15/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+01:11:38 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+01:11:39 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.73/17.01GB
+01:11:39 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(19%)
+01:15:47 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.19/17.01GB
+01:15:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(97%)
+01:16:14 |     [checkpoint] mid-epoch save at batch 743 (global_step=17600)
+01:19:55 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.05/17.01GB
+01:19:55 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(85%)
+01:23:59 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.58/17.01GB
+01:23:59 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(90%)
+01:25:49 |     [checkpoint] mid-epoch save at batch 2343 (global_step=17800)
+01:28:08 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.82/17.01GB
+01:28:08 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(15%)
+01:32:14 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.81/17.01GB
+01:32:14 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(97%)
+01:34:10 | Epoch 42/75  |  train_loss=0.0353  val_loss=0.0291
+01:34:10 |   Macro F1: 0.6322  (best: 0.6322 @ epoch 42)
+01:34:10 |   MA=0.799  HE=0.650  IH=0.703  VB/IRMA=0.318  NV=0.512  VH=0.686  RD=0.757
+01:34:10 |   LR: backbone=4.6e-06  decoder=4.6e-05
+01:34:10 |   Epoch time: 1344s  |  Elapsed: 15h 24m 6s  |  ETA: 12h 26m 51s
+01:34:10 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+01:34:10 |   Thresholds: not yet optimized (runs after training completes)
+01:34:10 |   Resources: RAM=11.20/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.17/11.94GB(11%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+01:34:10 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+01:34:10 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.22/17.01GB
+01:34:10 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(46%)
+01:37:24 |     [checkpoint] mid-epoch save at batch 527 (global_step=18000)
+01:38:20 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.90/17.01GB
+01:38:20 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(94%)
+01:42:25 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.69/17.01GB
+01:42:25 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(61%)
+01:46:29 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.95/17.01GB
+01:46:29 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(92%)
+01:47:02 |     [checkpoint] mid-epoch save at batch 2127 (global_step=18200)
+01:50:37 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.70/17.01GB
+01:50:37 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(90%)
+01:54:43 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+01:54:43 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(97%)
+01:56:37 | Epoch 43/75  |  train_loss=0.0352  val_loss=0.0291
+01:56:37 |   Macro F1: 0.6268  (best: 0.6322 @ epoch —)
+01:56:37 |   MA=0.799  HE=0.653  IH=0.704  VB/IRMA=0.317  NV=0.496  VH=0.688  RD=0.730
+01:56:37 |   LR: backbone=4.3e-06  decoder=4.3e-05
+01:56:37 |   Epoch time: 1342s  |  Elapsed: 15h 46m 33s  |  ETA: 12h 1m 42s
+01:56:37 |   Checkpoint: not saved (val F1 below best)
+01:56:37 |   Thresholds: not yet optimized (runs after training completes)
+01:56:37 |   Resources: RAM=11.44/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.17/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+01:56:37 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+01:56:38 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.49/17.01GB
+01:56:38 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+01:58:33 |     [checkpoint] mid-epoch save at batch 311 (global_step=18400)
+02:00:46 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.64/17.01GB
+02:00:46 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(13%)
+02:04:49 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+02:04:49 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(45%)
+02:08:24 |     [checkpoint] mid-epoch save at batch 1911 (global_step=18600)
+02:09:13 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+02:09:13 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(71%)
+02:13:17 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.78/17.01GB
+02:13:17 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(75%)
+02:17:22 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+02:17:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(23%)
+02:19:17 | Epoch 44/75  |  train_loss=0.0352  val_loss=0.0291
+02:19:17 |   Macro F1: 0.6251  (best: 0.6322 @ epoch —)
+02:19:17 |   MA=0.799  HE=0.649  IH=0.707  VB/IRMA=0.318  NV=0.491  VH=0.682  RD=0.730
+02:19:17 |   LR: backbone=4.1e-06  decoder=4.1e-05
+02:19:17 |   Epoch time: 1354s  |  Elapsed: 16h 9m 13s  |  ETA: 11h 39m 21s
+02:19:17 |   Checkpoint: not saved (val F1 below best)
+02:19:17 |   Thresholds: not yet optimized (runs after training completes)
+02:19:17 |   Resources: RAM=11.33/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.17/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+02:19:17 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+02:19:17 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.50/17.01GB
+02:19:17 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(9%)
+02:19:56 |     [checkpoint] mid-epoch save at batch 95 (global_step=18800)
+02:23:26 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.70/17.01GB
+02:23:26 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(52%)
+02:27:28 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+02:27:28 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+02:29:30 |     [checkpoint] mid-epoch save at batch 1695 (global_step=19000)
+02:31:37 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.67/17.01GB
+02:31:37 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(58%)
+02:35:38 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.91/17.01GB
+02:35:38 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(80%)
+02:39:06 |     [checkpoint] mid-epoch save at batch 3295 (global_step=19200)
+02:39:49 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.88/17.01GB
+02:39:49 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(89%)
+02:41:43 | Epoch 45/75  |  train_loss=0.0345  val_loss=0.0291
+02:41:43 |   Macro F1: 0.6280  (best: 0.6322 @ epoch —)
+02:41:43 |   MA=0.799  HE=0.647  IH=0.705  VB/IRMA=0.317  NV=0.500  VH=0.680  RD=0.747
+02:41:43 |   LR: backbone=3.9e-06  decoder=3.9e-05
+02:41:43 |   Epoch time: 1342s  |  Elapsed: 16h 31m 39s  |  ETA: 11h 14m 58s
+02:41:43 |   Checkpoint: not saved (val F1 below best)
+02:41:43 |   Thresholds: not yet optimized (runs after training completes)
+02:41:43 |   Resources: RAM=11.29/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.17/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+02:41:43 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+02:41:43 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.37/17.01GB
+02:41:43 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+02:45:47 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.70/17.01GB
+02:45:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+02:49:51 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.64/17.01GB
+02:49:51 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(38%)
+02:50:36 |     [checkpoint] mid-epoch save at batch 1479 (global_step=19400)
+02:54:00 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+02:54:00 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(60%)
+02:58:06 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.82/17.01GB
+02:58:06 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+03:00:15 |     [checkpoint] mid-epoch save at batch 3079 (global_step=19600)
+03:02:15 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.73/17.01GB
+03:02:15 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+03:04:09 | Epoch 46/75  |  train_loss=0.0348  val_loss=0.0291
+03:04:09 |   Macro F1: 0.6290  (best: 0.6322 @ epoch —)
+03:04:09 |   MA=0.799  HE=0.655  IH=0.704  VB/IRMA=0.318  NV=0.498  VH=0.682  RD=0.747
+03:04:09 |   LR: backbone=3.7e-06  decoder=3.7e-05
+03:04:09 |   Epoch time: 1341s  |  Elapsed: 16h 54m 5s  |  ETA: 10h 51m 11s
+03:04:09 |   Checkpoint: not saved (val F1 below best)
+03:04:09 |   Thresholds: not yet optimized (runs after training completes)
+03:04:09 |   Resources: RAM=11.17/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.17/11.94GB(6%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+03:04:09 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+03:04:09 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+03:04:09 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(6%)
+03:08:13 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.78/17.01GB
+03:08:13 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(91%)
+03:11:46 |     [checkpoint] mid-epoch save at batch 1263 (global_step=19800)
+03:12:23 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.85/17.01GB
+03:12:23 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(43%)
+03:16:29 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.74/17.01GB
+03:16:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(98%)
+03:20:34 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.65/17.01GB
+03:20:34 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(14%)
+03:21:31 |     [checkpoint] mid-epoch save at batch 2863 (global_step=20000)
+03:25:00 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+03:25:00 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(20%)
+03:26:56 | Epoch 47/75  |  train_loss=0.0348  val_loss=0.0290
+03:26:56 |   Macro F1: 0.6331  (best: 0.6331 @ epoch 47)
+03:26:56 |   MA=0.799  HE=0.663  IH=0.709  VB/IRMA=0.320  NV=0.505  VH=0.678  RD=0.757
+03:26:56 |   LR: backbone=3.5e-06  decoder=3.5e-05
+03:26:56 |   Epoch time: 1360s  |  Elapsed: 17h 16m 52s  |  ETA: 10h 30m 31s
+03:26:56 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+03:26:56 |   Thresholds: not yet optimized (runs after training completes)
+03:26:56 |   Resources: RAM=11.21/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.17/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+03:26:56 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+03:26:57 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.28/17.01GB
+03:26:57 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+03:31:00 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+03:31:00 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(83%)
+03:33:15 |     [checkpoint] mid-epoch save at batch 1047 (global_step=20200)
+03:35:09 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.70/17.01GB
+03:35:09 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(0%)
+03:39:14 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.10/17.01GB
+03:39:14 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.20/11.94GB(97%)
+03:43:01 |     [checkpoint] mid-epoch save at batch 2647 (global_step=20400)
+03:43:33 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.29/17.01GB
+03:43:33 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(40%)
+03:47:47 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+03:47:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(44%)
+03:49:47 | Epoch 48/75  |  train_loss=0.0347  val_loss=0.0289
+03:49:47 |   Macro F1: 0.6320  (best: 0.6331 @ epoch —)
+03:49:47 |   MA=0.799  HE=0.665  IH=0.711  VB/IRMA=0.321  NV=0.499  VH=0.682  RD=0.747
+03:49:47 |   LR: backbone=3.2e-06  decoder=3.2e-05
+03:49:47 |   Epoch time: 1366s  |  Elapsed: 17h 39m 43s  |  ETA: 10h 10m 0s
+03:49:47 |   Checkpoint: not saved (val F1 below best)
+03:49:47 |   Thresholds: not yet optimized (runs after training completes)
+03:49:47 |   Resources: RAM=11.66/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.22/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+03:49:47 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+03:49:48 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.69/17.01GB
+03:49:48 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(9%)
+03:54:03 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.19/17.01GB
+03:54:03 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(41%)
+03:55:03 |     [checkpoint] mid-epoch save at batch 831 (global_step=20600)
+03:58:21 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.95/17.01GB
+03:58:21 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(21%)
+04:02:36 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.02/17.01GB
+04:02:36 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(45%)
+04:05:05 |     [checkpoint] mid-epoch save at batch 2431 (global_step=20800)
+04:06:58 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.22/17.01GB
+04:06:58 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(86%)
+04:11:13 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.22/17.01GB
+04:11:13 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(1%)
+04:13:15 | Epoch 49/75  |  train_loss=0.0344  val_loss=0.0289
+04:13:15 |   Macro F1: 0.6336  (best: 0.6336 @ epoch 49)
+04:13:15 |   MA=0.799  HE=0.667  IH=0.713  VB/IRMA=0.323  NV=0.505  VH=0.682  RD=0.747
+04:13:15 |   LR: backbone=3.0e-06  decoder=3.0e-05
+04:13:15 |   Epoch time: 1399s  |  Elapsed: 18h 3m 11s  |  ETA: 9h 53m 7s
+04:13:15 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+04:13:15 |   Thresholds: not yet optimized (runs after training completes)
+04:13:15 |   Resources: RAM=11.67/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.22/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+04:13:15 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+04:13:15 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.44/17.01GB
+04:13:15 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(1%)
+04:17:11 |     [checkpoint] mid-epoch save at batch 615 (global_step=21000)
+04:17:36 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.28/17.01GB
+04:17:36 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(8%)
+04:21:49 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.15/17.01GB
+04:21:49 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(26%)
+04:26:03 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.87/17.01GB
+04:26:03 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(81%)
+04:27:10 |     [checkpoint] mid-epoch save at batch 2215 (global_step=21200)
+04:30:22 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.11/17.01GB
+04:30:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(30%)
+04:34:39 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.11/17.01GB
+04:34:39 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(88%)
+04:36:42 | Epoch 50/75  |  train_loss=0.0337  val_loss=0.0289
+04:36:42 |   Macro F1: 0.6361  (best: 0.6361 @ epoch 50)
+04:36:42 |   MA=0.799  HE=0.673  IH=0.713  VB/IRMA=0.327  NV=0.500  VH=0.684  RD=0.757
+04:36:42 |   LR: backbone=2.8e-06  decoder=2.8e-05
+04:36:42 |   Epoch time: 1399s  |  Elapsed: 18h 26m 38s  |  ETA: 9h 34m 8s
+04:36:42 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+04:36:42 |   Thresholds: not yet optimized (runs after training completes)
+04:36:42 |   Resources: RAM=11.96/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.22/11.94GB(7%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+04:36:42 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+04:36:43 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.74/17.01GB
+04:36:43 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(7%)
+04:39:27 |     [checkpoint] mid-epoch save at batch 399 (global_step=21400)
+04:41:20 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.98/17.01GB
+04:41:20 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(31%)
+04:45:34 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.84/17.01GB
+04:45:34 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(1%)
+04:49:27 |     [checkpoint] mid-epoch save at batch 1999 (global_step=21600)
+04:49:44 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.91/17.01GB
+04:49:44 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.21/11.94GB(0%)
+04:53:47 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.71/17.01GB
+04:53:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.21/11.94GB(38%)
+04:57:51 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+04:57:51 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.21/11.94GB(80%)
+04:59:47 | Epoch 51/75  |  train_loss=0.0342  val_loss=0.0289
+04:59:47 |   Macro F1: 0.6367  (best: 0.6367 @ epoch 51)
+04:59:47 |   MA=0.799  HE=0.671  IH=0.713  VB/IRMA=0.329  NV=0.501  VH=0.686  RD=0.757
+04:59:47 |   LR: backbone=2.6e-06  decoder=2.6e-05
+04:59:47 |   Epoch time: 1378s  |  Elapsed: 18h 49m 43s  |  ETA: 9h 11m 7s
+04:59:47 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+04:59:47 |   Thresholds: not yet optimized (runs after training completes)
+04:59:47 |   Resources: RAM=11.35/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.21/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+04:59:47 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+04:59:47 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+04:59:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.21/11.94GB(0%)
+05:00:58 |     [checkpoint] mid-epoch save at batch 183 (global_step=21800)
+05:03:58 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.98/17.01GB
+05:03:58 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(81%)
+05:08:01 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.57/17.01GB
+05:08:01 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(38%)
+05:10:35 |     [checkpoint] mid-epoch save at batch 1783 (global_step=22000)
+05:12:10 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+05:12:10 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(54%)
+05:16:14 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.71/17.01GB
+05:16:14 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(93%)
+05:20:12 |     [checkpoint] mid-epoch save at batch 3383 (global_step=22200)
+05:20:23 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.79/17.01GB
+05:20:23 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(40%)
+05:22:20 | Epoch 52/75  |  train_loss=0.0332  val_loss=0.0290
+05:22:20 |   Macro F1: 0.6379  (best: 0.6379 @ epoch 52)
+05:22:20 |   MA=0.799  HE=0.667  IH=0.715  VB/IRMA=0.332  NV=0.501  VH=0.684  RD=0.767
+05:22:20 |   LR: backbone=2.4e-06  decoder=2.4e-05
+05:22:20 |   Epoch time: 1346s  |  Elapsed: 19h 12m 16s  |  ETA: 8h 44m 29s
+05:22:20 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+05:22:20 |   Thresholds: not yet optimized (runs after training completes)
+05:22:20 |   Resources: RAM=11.38/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+05:22:20 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+05:22:21 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.34/17.01GB
+05:22:21 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(8%)
+05:26:23 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+05:26:23 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(12%)
+05:30:27 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+05:30:27 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(91%)
+05:31:44 |     [checkpoint] mid-epoch save at batch 1567 (global_step=22400)
+05:34:36 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.67/17.01GB
+05:34:36 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(47%)
+05:38:40 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+05:38:40 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+05:41:20 |     [checkpoint] mid-epoch save at batch 3167 (global_step=22600)
+05:42:49 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.67/17.01GB
+05:42:49 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(16%)
+05:44:47 | Epoch 53/75  |  train_loss=0.0337  val_loss=0.0291
+05:44:47 |   Macro F1: 0.6382  (best: 0.6382 @ epoch 53)
+05:44:47 |   MA=0.799  HE=0.669  IH=0.713  VB/IRMA=0.333  NV=0.499  VH=0.676  RD=0.778
+05:44:47 |   LR: backbone=2.2e-06  decoder=2.2e-05
+05:44:47 |   Epoch time: 1339s  |  Elapsed: 19h 34m 43s  |  ETA: 8h 18m 28s
+05:44:47 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+05:44:47 |   Thresholds: not yet optimized (runs after training completes)
+05:44:47 |   Resources: RAM=11.38/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+05:44:47 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+05:44:47 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.45/17.01GB
+05:44:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+05:48:52 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+05:48:52 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(24%)
+05:52:56 |     [checkpoint] mid-epoch save at batch 1351 (global_step=22800)
+05:53:01 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.01/17.01GB
+05:53:01 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(54%)
+05:57:24 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+05:57:24 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(2%)
+06:01:27 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+06:01:27 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(30%)
+06:02:50 |     [checkpoint] mid-epoch save at batch 2951 (global_step=23000)
+06:05:38 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+06:05:38 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(9%)
+06:07:32 | Epoch 54/75  |  train_loss=0.0333  val_loss=0.0292
+06:07:32 |   Macro F1: 0.6352  (best: 0.6382 @ epoch —)
+06:07:32 |   MA=0.799  HE=0.664  IH=0.713  VB/IRMA=0.332  NV=0.492  VH=0.669  RD=0.778
+06:07:32 |   LR: backbone=2.1e-06  decoder=2.1e-05
+06:07:32 |   Epoch time: 1360s  |  Elapsed: 19h 57m 28s  |  ETA: 7h 55m 55s
+06:07:32 |   Checkpoint: not saved (val F1 below best)
+06:07:32 |   Thresholds: not yet optimized (runs after training completes)
+06:07:32 |   Resources: RAM=11.48/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+06:07:32 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+06:07:32 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.36/17.01GB
+06:07:32 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(9%)
+06:11:38 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+06:11:38 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(96%)
+06:14:25 |     [checkpoint] mid-epoch save at batch 1135 (global_step=23200)
+06:15:47 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+06:15:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(63%)
+06:19:52 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.87/17.01GB
+06:19:52 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(71%)
+06:23:55 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.84/17.01GB
+06:23:55 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(88%)
+06:24:01 |     [checkpoint] mid-epoch save at batch 2735 (global_step=23400)
+06:28:04 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.63/17.01GB
+06:28:04 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+06:29:59 | Epoch 55/75  |  train_loss=0.0338  val_loss=0.0293
+06:29:59 |   Macro F1: 0.6328  (best: 0.6382 @ epoch —)
+06:29:59 |   MA=0.799  HE=0.667  IH=0.706  VB/IRMA=0.336  NV=0.490  VH=0.665  RD=0.767
+06:29:59 |   LR: backbone=1.9e-06  decoder=1.9e-05
+06:29:59 |   Epoch time: 1342s  |  Elapsed: 20h 19m 55s  |  ETA: 7h 31m 29s
+06:29:59 |   Checkpoint: not saved (val F1 below best)
+06:29:59 |   Thresholds: not yet optimized (runs after training completes)
+06:29:59 |   Resources: RAM=11.10/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+06:29:59 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+06:29:59 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.28/17.01GB
+06:29:59 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+06:34:03 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.62/17.01GB
+06:34:03 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(98%)
+06:35:31 |     [checkpoint] mid-epoch save at batch 919 (global_step=23600)
+06:38:10 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+06:38:10 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(86%)
+06:42:16 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.64/17.01GB
+06:42:16 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(92%)
+06:45:11 |     [checkpoint] mid-epoch save at batch 2519 (global_step=23800)
+06:46:28 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.87/17.01GB
+06:46:28 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(61%)
+06:50:32 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.85/17.01GB
+06:50:32 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(51%)
+06:52:28 | Epoch 56/75  |  train_loss=0.0324  val_loss=0.0295
+06:52:28 |   Macro F1: 0.6434  (best: 0.6434 @ epoch 56)
+06:52:28 |   MA=0.799  HE=0.667  IH=0.710  VB/IRMA=0.339  NV=0.501  VH=0.676  RD=0.812
+06:52:28 |   LR: backbone=1.7e-06  decoder=1.7e-05
+06:52:28 |   Epoch time: 1342s  |  Elapsed: 20h 42m 24s  |  ETA: 7h 7m 45s
+06:52:28 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+06:52:28 |   Thresholds: not yet optimized (runs after training completes)
+06:52:28 |   Resources: RAM=11.45/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+06:52:28 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+06:52:29 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.37/17.01GB
+06:52:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+06:56:36 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.73/17.01GB
+06:56:36 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(84%)
+06:56:48 |     [checkpoint] mid-epoch save at batch 703 (global_step=24000)
+07:00:45 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.67/17.01GB
+07:00:45 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(90%)
+07:04:50 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.77/17.01GB
+07:04:50 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(73%)
+07:06:25 |     [checkpoint] mid-epoch save at batch 2303 (global_step=24200)
+07:09:02 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.58/17.01GB
+07:09:02 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(92%)
+07:13:21 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.66/17.01GB
+07:13:21 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(65%)
+07:15:17 | Epoch 57/75  |  train_loss=0.0334  val_loss=0.0297
+07:15:17 |   Macro F1: 0.6437  (best: 0.6437 @ epoch 57)
+07:15:17 |   MA=0.799  HE=0.670  IH=0.713  VB/IRMA=0.339  NV=0.496  VH=0.676  RD=0.812
+07:15:17 |   LR: backbone=1.5e-06  decoder=1.5e-05
+07:15:17 |   Epoch time: 1362s  |  Elapsed: 21h 5m 13s  |  ETA: 6h 46m 13s
+07:15:17 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+07:15:17 |   Thresholds: not yet optimized (runs after training completes)
+07:15:17 |   Resources: RAM=11.36/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.19/11.94GB(7%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+07:15:17 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+07:15:18 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.27/17.01GB
+07:15:18 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(52%)
+07:18:16 |     [checkpoint] mid-epoch save at batch 487 (global_step=24400)
+07:19:27 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.63/17.01GB
+07:19:27 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(95%)
+07:23:32 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.75/17.01GB
+07:23:32 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(94%)
+07:27:37 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.69/17.01GB
+07:27:37 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(92%)
+07:27:56 |     [checkpoint] mid-epoch save at batch 2087 (global_step=24600)
+07:31:47 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+07:31:47 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(77%)
+07:35:53 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+07:35:53 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(57%)
+07:37:49 | Epoch 58/75  |  train_loss=0.0327  val_loss=0.0297
+07:37:49 |   Macro F1: 0.6482  (best: 0.6482 @ epoch 58)
+07:37:49 |   MA=0.799  HE=0.678  IH=0.715  VB/IRMA=0.339  NV=0.502  VH=0.680  RD=0.824
+07:37:49 |   LR: backbone=1.4e-06  decoder=1.4e-05
+07:37:49 |   Epoch time: 1345s  |  Elapsed: 21h 27m 45s  |  ETA: 6h 22m 51s
+07:37:49 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+07:37:49 |   Thresholds: not yet optimized (runs after training completes)
+07:37:49 |   Resources: RAM=11.46/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+07:37:49 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+07:37:50 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.59/17.01GB
+07:37:50 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(9%)
+07:39:32 |     [checkpoint] mid-epoch save at batch 271 (global_step=24800)
+07:41:59 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.58/17.01GB
+07:41:59 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(9%)
+07:46:04 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.66/17.01GB
+07:46:04 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(24%)
+07:49:10 |     [checkpoint] mid-epoch save at batch 1871 (global_step=25000)
+07:50:14 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.90/17.01GB
+07:50:14 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(36%)
+07:54:19 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+07:54:19 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(3%)
+07:58:22 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.73/17.01GB
+07:58:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(61%)
+08:00:17 | Epoch 59/75  |  train_loss=0.0332  val_loss=0.0296
+08:00:17 |   Macro F1: 0.6445  (best: 0.6482 @ epoch —)
+08:00:17 |   MA=0.799  HE=0.680  IH=0.714  VB/IRMA=0.340  NV=0.503  VH=0.674  RD=0.800
+08:00:17 |   LR: backbone=1.2e-06  decoder=1.2e-05
+08:00:17 |   Epoch time: 1343s  |  Elapsed: 21h 50m 13s  |  ETA: 5h 59m 41s
+08:00:17 |   Checkpoint: not saved (val F1 below best)
+08:00:17 |   Thresholds: not yet optimized (runs after training completes)
+08:00:17 |   Resources: RAM=11.56/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+08:00:17 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+08:00:18 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.27/17.01GB
+08:00:18 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(9%)
+08:00:42 |     [checkpoint] mid-epoch save at batch 55 (global_step=25200)
+08:04:24 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+08:04:24 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+08:08:27 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.79/17.01GB
+08:08:27 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+08:10:16 |     [checkpoint] mid-epoch save at batch 1655 (global_step=25400)
+08:12:36 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.94/17.01GB
+08:12:36 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(83%)
+08:16:41 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.72/17.01GB
+08:16:41 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(75%)
+08:19:54 |     [checkpoint] mid-epoch save at batch 3255 (global_step=25600)
+08:20:52 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.89/17.01GB
+08:20:52 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+08:22:47 | Epoch 60/75  |  train_loss=0.0335  val_loss=0.0295
+08:22:47 |   Macro F1: 0.6425  (best: 0.6482 @ epoch —)
+08:22:47 |   MA=0.799  HE=0.686  IH=0.715  VB/IRMA=0.343  NV=0.506  VH=0.676  RD=0.771
+08:22:47 |   LR: backbone=1.1e-06  decoder=1.1e-05
+08:22:47 |   Epoch time: 1344s  |  Elapsed: 22h 12m 43s  |  ETA: 5h 36m 52s
+08:22:47 |   Checkpoint: not saved (val F1 below best)
+08:22:47 |   Thresholds: not yet optimized (runs after training completes)
+08:22:47 |   Resources: RAM=11.53/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+08:22:47 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+08:22:47 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.25/17.01GB
+08:22:47 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(82%)
+08:27:11 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.83/17.01GB
+08:27:11 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.18/11.94GB(47%)
+08:31:14 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.76/17.01GB
+08:31:14 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(95%)
+08:31:45 |     [checkpoint] mid-epoch save at batch 1439 (global_step=25800)
+08:35:22 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.71/17.01GB
+08:35:22 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+08:39:25 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.79/17.01GB
+08:39:25 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(87%)
+08:41:21 |     [checkpoint] mid-epoch save at batch 3039 (global_step=26000)
+08:43:36 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.80/17.01GB
+08:43:36 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(11%)
+08:45:30 | Epoch 61/75  |  train_loss=0.0332  val_loss=0.0294
+08:45:30 |   Macro F1: 0.6442  (best: 0.6482 @ epoch —)
+08:45:30 |   MA=0.799  HE=0.688  IH=0.713  VB/IRMA=0.343  NV=0.507  VH=0.676  RD=0.783
+08:45:30 |   LR: backbone=9.5e-07  decoder=9.5e-06
+08:45:30 |   Epoch time: 1359s  |  Elapsed: 22h 35m 26s  |  ETA: 5h 15m 12s
+08:45:30 |   Checkpoint: not saved (val F1 below best)
+08:45:30 |   Thresholds: not yet optimized (runs after training completes)
+08:45:30 |   Resources: RAM=11.27/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.19/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+08:45:30 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+08:45:31 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.51/17.01GB
+08:45:31 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(0%)
+08:49:33 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.58/17.01GB
+08:49:33 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(64%)
+08:52:50 |     [checkpoint] mid-epoch save at batch 1223 (global_step=26200)
+08:53:42 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.75/17.01GB
+08:53:42 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(95%)
+08:57:47 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.69/17.01GB
+08:57:47 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(69%)
+09:01:52 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.84/17.01GB
+09:01:52 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(94%)
+09:02:30 |     [checkpoint] mid-epoch save at batch 2823 (global_step=26400)
+09:06:02 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.78/17.01GB
+09:06:02 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(1%)
+09:07:58 | Epoch 62/75  |  train_loss=0.0327  val_loss=0.0293
+09:07:58 |   Macro F1: 0.6416  (best: 0.6482 @ epoch —)
+09:07:58 |   MA=0.799  HE=0.690  IH=0.714  VB/IRMA=0.344  NV=0.505  VH=0.678  RD=0.761
+09:07:58 |   LR: backbone=8.3e-07  decoder=8.3e-06
+09:07:58 |   Epoch time: 1343s  |  Elapsed: 22h 57m 54s  |  ETA: 4h 52m 10s
+09:07:58 |   Checkpoint: not saved (val F1 below best)
+09:07:58 |   Thresholds: not yet optimized (runs after training completes)
+09:07:58 |   Resources: RAM=11.72/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.20/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+09:07:58 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+09:07:58 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.57/17.01GB
+09:07:58 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(7%)
+09:12:05 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.07/17.01GB
+09:12:05 |            self_rss=0.33GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(36%)
+09:14:08 |     [checkpoint] mid-epoch save at batch 1007 (global_step=26600)
+09:16:19 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.70/17.01GB
+09:16:19 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(58%)
+09:20:18 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+09:20:18 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(7%)
+09:23:33 |     [checkpoint] mid-epoch save at batch 2607 (global_step=26800)
+09:24:16 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.18/17.01GB
+09:24:16 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(37%)
+09:28:10 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.13/17.01GB
+09:28:10 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(9%)
+09:29:59 | Epoch 63/75  |  train_loss=0.0324  val_loss=0.0292
+09:29:59 |   Macro F1: 0.6439  (best: 0.6482 @ epoch —)
+09:29:59 |   MA=0.799  HE=0.688  IH=0.713  VB/IRMA=0.345  NV=0.506  VH=0.672  RD=0.783
+09:29:59 |   LR: backbone=7.1e-07  decoder=7.1e-06
+09:29:59 |   Epoch time: 1316s  |  Elapsed: 23h 19m 55s  |  ETA: 4h 27m 43s
+09:29:59 |   Checkpoint: not saved (val F1 below best)
+09:29:59 |   Thresholds: not yet optimized (runs after training completes)
+09:29:59 |   Resources: RAM=11.63/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.15/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+09:29:59 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+09:29:59 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.74/17.01GB
+09:29:59 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(1%)
+09:33:54 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.18/17.01GB
+09:33:54 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+09:34:36 |     [checkpoint] mid-epoch save at batch 791 (global_step=27000)
+09:37:54 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.13/17.01GB
+09:37:54 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(7%)
+09:41:56 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.03/17.01GB
+09:41:56 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(38%)
+09:44:13 |     [checkpoint] mid-epoch save at batch 2391 (global_step=27200)
+09:46:17 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.05/17.01GB
+09:46:17 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+09:50:24 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.97/17.01GB
+09:50:24 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(37%)
+09:52:18 | Epoch 64/75  |  train_loss=0.0321  val_loss=0.0293
+09:52:18 |   Macro F1: 0.6440  (best: 0.6482 @ epoch —)
+09:52:18 |   MA=0.799  HE=0.692  IH=0.721  VB/IRMA=0.346  NV=0.512  VH=0.678  RD=0.761
+09:52:18 |   LR: backbone=6.0e-07  decoder=6.0e-06
+09:52:18 |   Epoch time: 1335s  |  Elapsed: 23h 42m 14s  |  ETA: 4h 5m 11s
+09:52:18 |   Checkpoint: not saved (val F1 below best)
+09:52:18 |   Thresholds: not yet optimized (runs after training completes)
+09:52:18 |   Resources: RAM=11.39/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+09:52:18 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+09:52:18 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.48/17.01GB
+09:52:18 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(83%)
+09:55:50 |     [checkpoint] mid-epoch save at batch 575 (global_step=27400)
+09:56:27 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.04/17.01GB
+09:56:27 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+10:00:34 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.01/17.01GB
+10:00:34 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(76%)
+10:04:31 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.86/17.01GB
+10:04:31 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.12/11.94GB(0%)
+10:05:18 |     [checkpoint] mid-epoch save at batch 2175 (global_step=27600)
+10:08:28 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.97/17.01GB
+10:08:28 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.12/11.94GB(21%)
+10:12:22 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.99/17.01GB
+10:12:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.12/11.94GB(0%)
+10:14:10 | Epoch 65/75  |  train_loss=0.0330  val_loss=0.0294
+10:14:10 |   Macro F1: 0.6469  (best: 0.6482 @ epoch —)
+10:14:10 |   MA=0.799  HE=0.686  IH=0.720  VB/IRMA=0.347  NV=0.503  VH=0.678  RD=0.794
+10:14:10 |   LR: backbone=5.0e-07  decoder=5.0e-06
+10:14:10 |   Epoch time: 1308s  |  Elapsed: 24h 4m 6s  |  ETA: 3h 41m 24s
+10:14:10 |   Checkpoint: not saved (val F1 below best)
+10:14:10 |   Thresholds: not yet optimized (runs after training completes)
+10:14:10 |   Resources: RAM=11.44/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.12/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+10:14:10 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+10:14:11 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+10:14:11 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.12/11.94GB(10%)
+10:16:18 |     [checkpoint] mid-epoch save at batch 359 (global_step=27800)
+10:18:08 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.84/17.01GB
+10:18:08 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.12/11.94GB(7%)
+10:22:06 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.12/17.01GB
+10:22:06 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(65%)
+10:25:45 |     [checkpoint] mid-epoch save at batch 1959 (global_step=28000)
+10:26:18 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.19/17.01GB
+10:26:18 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(79%)
+10:30:22 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.05/17.01GB
+10:30:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(79%)
+10:34:30 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.34/17.01GB
+10:34:30 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(8%)
+10:36:25 | Epoch 66/75  |  train_loss=0.0329  val_loss=0.0294
+10:36:25 |   Macro F1: 0.6425  (best: 0.6482 @ epoch —)
+10:36:25 |   MA=0.799  HE=0.686  IH=0.718  VB/IRMA=0.346  NV=0.499  VH=0.678  RD=0.771
+10:36:25 |   LR: backbone=4.0e-07  decoder=4.0e-06
+10:36:25 |   Epoch time: 1330s  |  Elapsed: 24h 26m 21s  |  ETA: 3h 19m 19s
+10:36:25 |   Checkpoint: not saved (val F1 below best)
+10:36:25 |   Thresholds: not yet optimized (runs after training completes)
+10:36:25 |   Resources: RAM=11.82/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.15/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+10:36:25 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+10:36:25 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.84/17.01GB
+10:36:25 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(8%)
+10:37:23 |     [checkpoint] mid-epoch save at batch 143 (global_step=28200)
+10:40:37 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.84/17.01GB
+10:40:37 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(36%)
+10:44:45 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.17/17.01GB
+10:44:45 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(93%)
+10:47:06 |     [checkpoint] mid-epoch save at batch 1743 (global_step=28400)
+10:48:57 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.85/17.01GB
+10:48:57 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(63%)
+10:53:05 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.97/17.01GB
+10:53:05 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(5%)
+10:56:50 |     [checkpoint] mid-epoch save at batch 3343 (global_step=28600)
+10:57:17 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.67/17.01GB
+10:57:17 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(29%)
+10:59:37 | Epoch 67/75  |  train_loss=0.0323  val_loss=0.0294
+10:59:37 |   Macro F1: 0.6462  (best: 0.6482 @ epoch —)
+10:59:37 |   MA=0.799  HE=0.686  IH=0.719  VB/IRMA=0.345  NV=0.513  VH=0.689  RD=0.771
+10:59:37 |   LR: backbone=3.2e-07  decoder=3.2e-06
+10:59:37 |   Epoch time: 1386s  |  Elapsed: 24h 49m 33s  |  ETA: 2h 59m 27s
+10:59:37 |   Checkpoint: not saved (val F1 below best)
+10:59:37 |   Thresholds: not yet optimized (runs after training completes)
+10:59:37 |   Resources: RAM=11.54/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.14/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+10:59:37 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+10:59:37 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.52/17.01GB
+10:59:37 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.13/11.94GB(0%)
+11:03:50 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.15/17.01GB
+11:03:50 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(0%)
+11:07:56 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.16/17.01GB
+11:07:56 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(97%)
+11:08:59 |     [checkpoint] mid-epoch save at batch 1527 (global_step=28800)
+11:12:08 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.03/17.01GB
+11:12:08 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(75%)
+11:16:15 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.07/17.01GB
+11:16:15 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.15/11.94GB(78%)
+11:18:41 |     [checkpoint] mid-epoch save at batch 3127 (global_step=29000)
+11:20:20 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.11/17.01GB
+11:20:20 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.17/11.94GB(78%)
+11:22:10 | Epoch 68/75  |  train_loss=0.0319  val_loss=0.0295
+11:22:10 |   Macro F1: 0.6446  (best: 0.6482 @ epoch —)
+11:22:10 |   MA=0.799  HE=0.687  IH=0.720  VB/IRMA=0.348  NV=0.513  VH=0.684  RD=0.761
+11:22:10 |   LR: backbone=2.4e-07  decoder=2.4e-06
+11:22:10 |   Epoch time: 1348s  |  Elapsed: 25h 12m 6s  |  ETA: 2h 37m 6s
+11:22:10 |   Checkpoint: not saved (val F1 below best)
+11:22:10 |   Thresholds: not yet optimized (runs after training completes)
+11:22:10 |   Resources: RAM=11.35/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.13/11.94GB(10%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+11:22:10 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+11:22:10 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.39/17.01GB
+11:22:10 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.13/11.94GB(6%)
+11:26:05 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.46/17.01GB
+11:26:05 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.18/11.94GB(68%)
+11:29:54 |     [checkpoint] mid-epoch save at batch 1311 (global_step=29200)
+11:30:14 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.39/17.01GB
+11:30:14 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.16/11.94GB(98%)
+11:34:22 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.09/17.01GB
+11:34:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.16/11.94GB(77%)
+11:38:27 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.09/17.01GB
+11:38:27 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.14/11.94GB(38%)
+11:39:37 |     [checkpoint] mid-epoch save at batch 2911 (global_step=29400)
+11:42:41 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.73/17.01GB
+11:42:41 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(78%)
+11:44:37 | Epoch 69/75  |  train_loss=0.0318  val_loss=0.0295
+11:44:37 |   Macro F1: 0.6474  (best: 0.6482 @ epoch —)
+11:44:37 |   MA=0.799  HE=0.692  IH=0.721  VB/IRMA=0.349  NV=0.513  VH=0.687  RD=0.771
+11:44:37 |   LR: backbone=1.8e-07  decoder=1.8e-06
+11:44:37 |   Epoch time: 1342s  |  Elapsed: 25h 34m 33s  |  ETA: 2h 14m 31s
+11:44:37 |   Checkpoint: not saved (val F1 below best)
+11:44:37 |   Thresholds: not yet optimized (runs after training completes)
+11:44:37 |   Resources: RAM=11.39/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.12/11.94GB(8%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+11:44:37 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+11:44:37 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.21/17.01GB
+11:44:37 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.12/11.94GB(1%)
+11:48:44 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.67/17.01GB
+11:48:44 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.11/11.94GB(0%)
+11:51:18 |     [checkpoint] mid-epoch save at batch 1095 (global_step=29600)
+11:52:57 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.27/17.01GB
+11:52:57 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.19/11.94GB(74%)
+11:57:15 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.26/17.01GB
+11:57:15 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.32/11.94GB(0%)
+12:02:05 |     [checkpoint] mid-epoch save at batch 2695 (global_step=29800)
+12:02:22 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=13.83/17.01GB
+12:02:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(70%)
+12:07:24 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.72/17.01GB
+12:07:24 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.44/11.94GB(0%)
+12:09:52 | Epoch 70/75  |  train_loss=0.0323  val_loss=0.0295
+12:09:52 |   Macro F1: 0.6502  (best: 0.6502 @ epoch 70)
+12:09:52 |   MA=0.799  HE=0.692  IH=0.721  VB/IRMA=0.352  NV=0.515  VH=0.691  RD=0.783
+12:09:52 |   LR: backbone=1.3e-07  decoder=1.3e-06
+12:09:52 |   Epoch time: 1506s  |  Elapsed: 25h 59m 48s  |  ETA: 1h 56m 6s
+12:09:52 |   Checkpoint: saved -> outputs\exp_b_uwf\best_model.pth
+12:09:52 |   Thresholds: not yet optimized (runs after training completes)
+12:09:52 |   Resources: RAM=11.34/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.32/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+12:09:52 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+12:09:53 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.18/17.01GB
+12:09:53 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.32/11.94GB(0%)
+12:14:53 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=10.51/17.01GB
+12:14:53 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.22/11.94GB(69%)
+12:16:22 |     [checkpoint] mid-epoch save at batch 879 (global_step=30000)
+12:20:00 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=13.10/17.01GB
+12:20:00 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.32/11.94GB(0%)
+12:24:29 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.20/17.01GB
+12:24:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.39/11.94GB(95%)
+12:27:09 |     [checkpoint] mid-epoch save at batch 2479 (global_step=30200)
+12:28:40 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.11/17.01GB
+12:28:40 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.36/11.94GB(75%)
+12:32:42 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.64/17.01GB
+12:32:42 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(10%)
+12:34:36 | Epoch 71/75  |  train_loss=0.0327  val_loss=0.0295
+12:34:36 |   Macro F1: 0.6482  (best: 0.6502 @ epoch —)
+12:34:36 |   MA=0.799  HE=0.686  IH=0.721  VB/IRMA=0.350  NV=0.512  VH=0.687  RD=0.783
+12:34:36 |   LR: backbone=8.0e-08  decoder=8.0e-07
+12:34:36 |   Epoch time: 1479s  |  Elapsed: 26h 24m 32s  |  ETA: 1h 34m 36s
+12:34:36 |   Checkpoint: not saved (val F1 below best)
+12:34:36 |   Thresholds: not yet optimized (runs after training completes)
+12:34:36 |   Resources: RAM=12.05/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.31/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+12:34:36 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+12:34:36 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.05/17.01GB
+12:34:36 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(9%)
+12:38:37 |     [checkpoint] mid-epoch save at batch 663 (global_step=30400)
+12:38:44 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.77/17.01GB
+12:38:44 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(0%)
+12:42:50 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.41/17.01GB
+12:42:50 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(71%)
+12:46:54 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.69/17.01GB
+12:46:54 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(92%)
+12:48:15 |     [checkpoint] mid-epoch save at batch 2263 (global_step=30600)
+12:51:04 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.60/17.01GB
+12:51:04 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(99%)
+12:55:07 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.52/17.01GB
+12:55:07 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(57%)
+12:57:01 | Epoch 72/75  |  train_loss=0.0328  val_loss=0.0295
+12:57:01 |   Macro F1: 0.6461  (best: 0.6502 @ epoch —)
+12:57:01 |   MA=0.799  HE=0.686  IH=0.718  VB/IRMA=0.348  NV=0.510  VH=0.678  RD=0.783
+12:57:01 |   LR: backbone=4.5e-08  decoder=4.5e-07
+12:57:01 |   Epoch time: 1340s  |  Elapsed: 26h 46m 57s  |  ETA: 1h 9m 46s
+12:57:01 |   Checkpoint: not saved (val F1 below best)
+12:57:01 |   Thresholds: not yet optimized (runs after training completes)
+12:57:01 |   Resources: RAM=11.97/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.31/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+12:57:01 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+12:57:02 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.02/17.01GB
+12:57:02 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(0%)
+12:59:46 |     [checkpoint] mid-epoch save at batch 447 (global_step=30800)
+13:01:10 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.60/17.01GB
+13:01:10 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(42%)
+13:05:14 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.70/17.01GB
+13:05:14 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(85%)
+13:09:23 |     [checkpoint] mid-epoch save at batch 2047 (global_step=31000)
+13:09:24 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.94/17.01GB
+13:09:24 |            self_rss=0.30GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(56%)
+13:13:29 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.71/17.01GB
+13:13:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(39%)
+13:17:34 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.73/17.01GB
+13:17:34 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(66%)
+13:19:29 | Epoch 73/75  |  train_loss=0.0325  val_loss=0.0295
+13:19:29 |   Macro F1: 0.6455  (best: 0.6502 @ epoch —)
+13:19:29 |   MA=0.799  HE=0.684  IH=0.716  VB/IRMA=0.348  NV=0.510  VH=0.678  RD=0.783
+13:19:29 |   LR: backbone=2.0e-08  decoder=2.0e-07
+13:19:29 |   Epoch time: 1342s  |  Elapsed: 27h 9m 25s  |  ETA: 45m 58s
+13:19:29 |   Checkpoint: not saved (val F1 below best)
+13:19:29 |   Thresholds: not yet optimized (runs after training completes)
+13:19:29 |   Resources: RAM=12.26/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.31/11.94GB(7%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+13:19:29 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+13:19:29 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=12.23/17.01GB
+13:19:29 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(6%)
+13:20:57 |     [checkpoint] mid-epoch save at batch 231 (global_step=31200)
+13:23:42 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.38/17.01GB
+13:23:42 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(72%)
+13:28:04 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.61/17.01GB
+13:28:04 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(32%)
+13:30:53 |     [checkpoint] mid-epoch save at batch 1831 (global_step=31400)
+13:32:09 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.63/17.01GB
+13:32:09 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(0%)
+13:36:14 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.56/17.01GB
+13:36:14 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(73%)
+13:40:19 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.54/17.01GB
+13:40:19 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(91%)
+13:42:13 | Epoch 74/75  |  train_loss=0.0319  val_loss=0.0295
+13:42:13 |   Macro F1: 0.6458  (best: 0.6502 @ epoch —)
+13:42:13 |   MA=0.799  HE=0.685  IH=0.716  VB/IRMA=0.349  NV=0.510  VH=0.678  RD=0.783
+13:42:13 |   LR: backbone=5.0e-09  decoder=5.0e-08
+13:42:13 |   Epoch time: 1359s  |  Elapsed: 27h 32m 9s  |  ETA: 22m 53s
+13:42:13 |   Checkpoint: not saved (val F1 below best)
+13:42:13 |   Thresholds: not yet optimized (runs after training completes)
+13:42:13 |   Resources: RAM=12.12/17.01GB  self_rss=0.32GB  GPU=[gpu0=11.31/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+13:42:13 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+13:42:13 |     [mem] batch 0/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.99/17.01GB
+13:42:13 |            self_rss=0.31GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(0%)
+13:42:23 |     [checkpoint] mid-epoch save at batch 15 (global_step=31600)
+13:46:22 |     [mem] batch 683/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.60/17.01GB
+13:46:22 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(6%)
+13:50:27 |     [mem] batch 1366/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.81/17.01GB
+13:50:27 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.32/11.94GB(42%)
+13:52:00 |     [checkpoint] mid-epoch save at batch 1615 (global_step=31800)
+13:54:36 |     [mem] batch 2049/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.52/17.01GB
+13:54:36 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(63%)
+13:58:41 |     [mem] batch 2732/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.38/17.01GB
+13:58:41 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(0%)
+14:01:41 |     [checkpoint] mid-epoch save at batch 3215 (global_step=32000)
+14:02:52 |     [mem] batch 3415/3416 | alloc=7.07GB reserved=8.79GB peak=8.29GB | RAM=11.44/17.01GB
+14:02:52 |            self_rss=0.32GB children_rss=0.00GB children=0 | gpu0=11.31/11.94GB(0%)
+14:04:48 | Epoch 75/75  |  train_loss=0.0323  val_loss=0.0295
+14:04:48 |   Macro F1: 0.6459  (best: 0.6502 @ epoch —)
+14:04:48 |   MA=0.799  HE=0.685  IH=0.716  VB/IRMA=0.350  NV=0.510  VH=0.678  RD=0.783
+14:04:48 |   LR: backbone=0.0e+00  decoder=0.0e+00
+14:04:48 |   Epoch time: 1350s  |  Elapsed: 27h 54m 44s  |  ETA: 0s
+14:04:48 |   Checkpoint: not saved (val F1 below best)
+14:04:48 |   Thresholds: not yet optimized (runs after training completes)
+14:04:48 |   Resources: RAM=12.06/17.01GB  self_rss=0.31GB  GPU=[gpu0=11.31/11.94GB(9%)]  peak_ram=14.98GB  peak_gpu=7.07GB
+14:04:48 |   Checkpoint interval: every 200 steps  |  Resume state: fresh start
+14:04:48 | 
+14:04:48 | Training complete. Best val F1: 0.6502
+14:04:48 | Total training time: 27h 54m 44s
+14:04:48 | 
+14:04:48 | Loading best checkpoint for threshold optimization...
+14:04:49 |   Using EMA weights for evaluation
+14:04:49 | 
+14:04:49 | ======================================================================
+14:04:49 | THRESHOLD OPTIMIZATION
+14:04:49 | ======================================================================
+14:04:49 | Collecting validation predictions...
+14:19:32 | Searching optimal thresholds per class...
+14:19:32 | 
+=== Threshold Optimization Results (Validation Set) ===
+14:19:32 | 
+Lesion     Thresh  F1@0.5  F1@opt    Diff
+---------------------------------------------
+MA           0.80  0.7993  0.9141 +0.1148
+HE           0.75  0.6915  0.8382 +0.1467
+IH           0.75  0.7212  0.8246 +0.1034
+VB/IRMA      0.70  0.3518  0.4828 +0.1310
+NV           0.75  0.5146  0.7982 +0.2836
+VH           0.80  0.6907  0.8978 +0.2071
+RD           0.60  0.7826  0.8387 +0.0561
+---------------------------------------------
+Macro              0.6502  0.7992 +0.1490
+14:19:32 | Thresholds saved to outputs\exp_b_uwf\thresholds.json
+14:19:33 | 
+14:19:33 | ======================================================================
+14:19:33 | TEST SET EVALUATION
+14:19:33 | ======================================================================
+14:19:33 | 
+--- UWF Test Set ---
+14:59:40 |   At 0.5:      macro_F1 = 0.6371
+14:59:40 |   At optimized: macro_F1 = 0.7766
+14:59:40 |   Δ = +0.1395
+14:59:40 |     MA  : F1@0.5=0.8114  F1@opt=0.9067  t=0.80
+14:59:40 |     HE  : F1@0.5=0.6655  F1@opt=0.8218  t=0.75
+14:59:40 |     IH  : F1@0.5=0.6847  F1@opt=0.8021  t=0.75
+14:59:40 |     VB  : F1@0.5=0.3302  F1@opt=0.4574  t=0.70
+14:59:40 |     NV  : F1@0.5=0.5177  F1@opt=0.7798  t=0.75
+14:59:40 |     VH  : F1@0.5=0.7338  F1@opt=0.9076  t=0.80
+14:59:40 |     RD  : F1@0.5=0.7160  F1@opt=0.7606  t=0.60
+14:59:40 | 
+Results saved to outputs\exp_b_uwf\results.json
+14:59:40 | 
+14:59:40 | ======================================================================
+14:59:40 | DONE
+14:59:40 | Total time: 28h 49m 36s
+14:59:40 | ======================================================================
